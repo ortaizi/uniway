@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-lottie": "^1.2.10",
+    "react-router-dom": "^7.4.1"
+  }
+}

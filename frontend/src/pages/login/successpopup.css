@@ -1,0 +1,57 @@
+/* Popup overlay to cover the whole screen */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  /* Popup container */
+  .popup-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1100; /* Ensure it's on top of the overlay */
+  }
+  
+  .popup-container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    color: #57bfc1; /* Color matches the main theme */
+    margin-bottom: 20px;
+  }
+  
+  .popup-container p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 30px;
+  }
+  
+  .popup-container button {
+    background-color: #57bfc1;
+    color: white;
+    padding: 14px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup-container button:hover {
+    background-color: #009a9a;
+  }
+  

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Work+Sans:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #ffffff;
+  color: #222;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 30px 30px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-title-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.logo-img {
+  width: 110px;
+  height: auto;
+}
+
+.logo-text {
+  font-size: 60px;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.bold-part {
+  font-weight: 700;
+}
+
+.light-part {
+  font-weight: 400;
+}
+
+.slogan {
+  font-size: 30px;
+  color: #555;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.main h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.feature {
+  background-color: #f3f3f3;
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.feature h3 {
+  font-size: 25px;
+  margin: 20px 0 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.feature p {
+  font-size: 20px;
+  color: #555;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.icon {
+  width: 140px;
+  height: auto;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.cta-button {
+  background-color: #57bfc1;
+  color: white;
+  padding: 18px 36px;
+  border-radius: 10px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cta-button:hover {
+  background-color: #009a9a;
+}
+
+.icon[alt="Academic Tracker"] {
+  width: 110px;
+}
