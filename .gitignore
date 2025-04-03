@@ -1,22 +1,9 @@
-# Python virtual environments
-sbenv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Node.js modules (for both frontend and backend)
 node_modules/
 
-# Logs, runtime, and system files
-.DS_Store
-.env
+# אם אתה רוצה להעלות את dist — תמחק את השורה הבאה
+# dist/
+
 *.log
-
-# Credentials and secrets
-users.json
-credentials.yml
-
-# Cache or generated folders (optional, to keep it clean)
-cache/
-sbenv/
+.env
+.DS_Store
+.vscode/
