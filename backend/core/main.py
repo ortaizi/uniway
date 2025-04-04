@@ -13,7 +13,7 @@ app = FastAPI()
 # CORS settings
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, set your frontend URL
+    allow_origins=["https://uniway.site"],  # In production, set your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -19,7 +19,7 @@ function Login() {
     setMessage('');
 
     try {
-      const response = await fetch('http://192.168.1.141:8000/login', {  // Replace with your backend IP and port
+      const response = await fetch("https://api.uniway.site/login", {  // Replace with your backend IP and port
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
