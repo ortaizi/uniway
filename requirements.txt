@@ -1,8 +1,19 @@
-rasa
-rasa-sdk
-fastapi
-requests
-beautifulsoup4
-selenium
-rapidfuzz
-uvicorn
+# --- Core API Framework ---
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# --- Web Scraping & HTTP ---
+requests==2.31.0
+beautifulsoup4==4.12.3
+
+# --- Automation / Browser ---
+selenium==4.18.1
+rapidfuzz==3.6.1
+
+# --- Rasa Bot Framework ---
+rasa==3.6.16
+rasa-sdk==3.6.2
+
+# Optional NLP engine (only if used)
+# spacy==3.7.2
+# python -m spacy download en_core_web_md
