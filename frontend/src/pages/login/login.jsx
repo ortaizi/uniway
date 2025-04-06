@@ -5,12 +5,13 @@ import Lottie from 'react-lottie';
 import animationData from '../../assets/ani-loading-login.json';
 import SuccessPopup from './successpopup.jsx';
 import loginMainAnimation from '../../assets/ani-main-login.json';
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [loginSuccess, setLoginSuccess] = useState(false); // State to manage success popup visibility
+  const [loginSuccess, setLoginSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -19,38 +20,36 @@ function Login() {
     setMessage('');
 
     try {
-      const response = await fetch("https://api.uniway.site/login", {  // Replace with your backend IP and port
+      const response = await fetch("https://api.uniway.site/login", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password }),
       });
-      
-      if (!response.ok) {
-        throw new Error('Failed to connect to the server');
-      }
 
       const data = await response.json();
-
       setLoading(false);
 
-      if (data.status === 'success') {
-        setLoginSuccess(true);  // Show the success popup if login is successful
+      if (response.status === 200 && data.status === 'success') {
+        setLoginSuccess(true);
         setMessage('✅ Login successful!');
-      } else {
+      } else if (response.status === 401) {
         setMessage('❌ Invalid username or password');
+      } else {
+        setMessage('❌ Something went wrong. Please try again later.');
       }
+
     } catch (error) {
       setLoading(false);
       setMessage('❌ There was an error with the request: ' + error.message);
-      console.error('Login error:', error); // Log the error for debugging
+      console.error('Login error:', error);
     }
   };
 
   const handleSuccessPopupClose = () => {
-    setLoginSuccess(false); // Close the success popup
-    navigate('/dashboard');  // Navigate to the dashboard page
+    setLoginSuccess(false);
+    navigate('/dashboard');
   };
 
   return (
@@ -112,19 +111,19 @@ function Login() {
       {loginSuccess && <SuccessPopup onClose={handleSuccessPopupClose} />}
 
       <div className="image-section">
-  <Lottie
-    options={{
-      animationData: loginMainAnimation,
-      loop: true,
-      autoplay: true,
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid slice",
-      },
-    }}
-    height={600}
-    width={600}
-  />
-</div>
+        <Lottie
+          options={{
+            animationData: loginMainAnimation,
+            loop: true,
+            autoplay: true,
+            rendererSettings: {
+              preserveAspectRatio: "xMidYMid slice",
+            },
+          }}
+          height={600}
+          width={600}
+        />
+      </div>
     </div>
   );
 }
