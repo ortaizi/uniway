@@ -12,7 +12,7 @@ rapidfuzz==3.6.1
 
 # --- Rasa Bot Framework ---
 rasa==3.5.10
-rasa-sdk==3.5.2
+rasa-sdk==3.5.1
 
 # Optional NLP engine (only if used)
 # spacy==3.7.2
