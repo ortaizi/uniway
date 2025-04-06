@@ -47,6 +47,11 @@ def save_user_or_update_password(username, password):
         with open(USERS_FILE, "w") as file:
             json.dump(users, file, indent=2)
 
+@app.get("/ping")
+async def ping():
+    return {"status": "ok"}
+
+
 @app.post("/login")
 async def login(request: Request):
     data = await request.json()
