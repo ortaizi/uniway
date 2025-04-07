@@ -2,7 +2,7 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from actions.scraper import (
+from scraper import (
     login_to_moodle_with_credentials,
     extract_course_list,
     search_course_files
