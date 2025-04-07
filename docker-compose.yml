@@ -28,7 +28,7 @@ services:
       run --enable-api --cors "*" --debug --host 0.0.0.0
     restart: always
 
-  action_server:
+    action_server:
     build:
       context: ./backend/rasa/actions
       dockerfile: Dockerfile
@@ -38,5 +38,6 @@ services:
       - ./backend/rasa/actions:/app/actions
     ports:
       - "5055:5055"
-    command: ["rasa", "run", "actions", "--port", "5055", "--cors", "*", "--debug", "--host", "0.0.0.0"]
+    command: ["rasa", "run", "actions", "--port", "5055", "--cors", "*", "--debug"]
     restart: always
+
