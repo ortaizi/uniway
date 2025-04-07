@@ -2,7 +2,10 @@ version: '3.9'
 
 services:
   fastapi:
-    build: ./backend/core
+    build:
+      context: ./backend/core
+      dockerfile: Dockerfile
+    image: uniway_fastapi
     container_name: fastapi_app
     ports:
       - "8000:8000"
@@ -11,7 +14,10 @@ services:
     restart: always
 
   rasa:
-    build: ./backend/rasa
+    build:
+      context: ./backend/rasa
+      dockerfile: Dockerfile
+    image: uniway_rasa
     container_name: rasa_server
     ports:
       - "5005:5005"
@@ -22,7 +28,10 @@ services:
     restart: always
 
   action_server:
-    build: ./backend/rasa/actions
+    build:
+      context: ./backend/rasa/actions
+      dockerfile: Dockerfile
+    image: uniway_action_server
     container_name: rasa_actions
     volumes:
       - ./backend/rasa/actions:/app/actions
