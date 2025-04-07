@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  fastapi:
+    build: ./backend/core
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rasa
+    restart: always
+
+  rasa:
+    build: ./backend/rasa
+    container_name: rasa_server
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./backend/rasa:/app
+    command: >
+      run --enable-api --cors "*" --debug
+    restart: always
+
+  action_server:
+    build: ./backend/rasa/actions
+    container_name: rasa_actions
+    volumes:
+      - ./backend/rasa/actions:/app/actions
+    ports:
+      - "5055:5055"
+    command: ["rasa", "run", "actions"]
+    restart: always
