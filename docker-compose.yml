@@ -31,7 +31,7 @@ services:
     build:
       context: ./backend/rasa/actions
       dockerfile: Dockerfile
-    image: uniway_action_server
+    image: uniway_action_server_fixed
     container_name: rasa_actions
     volumes:
       - ./backend/rasa/actions:/app/actions
