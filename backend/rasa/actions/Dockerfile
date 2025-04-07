@@ -4,6 +4,6 @@ WORKDIR /app/actions
 
 COPY . .
 
-RUN pip install -r requirements.txt || true
+RUN pip install --no-cache-dir --user -r requirements.txt || true
 
 CMD ["rasa", "run", "actions"]
