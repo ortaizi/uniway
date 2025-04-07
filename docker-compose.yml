@@ -28,7 +28,7 @@ services:
       run --enable-api --cors "*" --debug --host 0.0.0.0
     restart: always
 
-    action_server:
+  action_server:
     build:
       context: ./backend/rasa/actions
       dockerfile: Dockerfile
