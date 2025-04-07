@@ -1,9 +1,10 @@
+__pycache__/
+*.pyc
 node_modules/
-
-# אם אתה רוצה להעלות את dist — תמחק את השורה הבאה
-# dist/
-
-*.log
-.env
-.DS_Store
-.vscode/
+venv/
+*.zip
+*.mov
+*.mp4
+*.webm
+*.svg
+chromedriver
