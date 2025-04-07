@@ -5,3 +5,5 @@ WORKDIR /app/actions
 COPY . .
 
 RUN pip install -r requirements.txt || true
+
+CMD ["rasa", "run", "actions"]
