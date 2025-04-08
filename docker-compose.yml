@@ -44,3 +44,13 @@ services:
     command: ["rasa", "run", "actions", "--port", "5055", "--cors", "*", "--debug"]
     restart: always
 
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: uniway_nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - fastapi
+    restart: always
