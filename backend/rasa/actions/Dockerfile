@@ -1,5 +1,7 @@
 FROM rasa/rasa-sdk:3.6.2
 
+ENTRYPOINT []
+
 WORKDIR /app/actions
 
 COPY . .
