@@ -16,8 +16,8 @@ services:
 
   rasa:
     build:
-    context: ./backend/rasa
-    dockerfile: Dockerfile
+      context: ./backend/rasa
+      dockerfile: Dockerfile
     image: uniway_rasa
     container_name: rasa_server
     ports:
