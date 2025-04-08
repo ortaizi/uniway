@@ -24,8 +24,9 @@ services:
       - "5005:5005"
     volumes:
       - ./backend/rasa:/app
-    command: >
-      run --enable-api --cors "*" --debug --host 0.0.0.0
+    
+    command: ["rasa", "run", "--enable-api", "--cors", "*", "--debug", "--host", "0.0.0.0"]
+
 
     restart: always
 
