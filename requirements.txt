@@ -11,8 +11,8 @@ selenium==4.18.1
 rapidfuzz==3.6.1
 
 # --- Rasa Bot Framework (v3.1) ---
-rasa==3.1.0
-rasa-sdk==3.1.1  # Most stable match for rasa 3.1
+#rasa==3.1.0
+#rasa-sdk==3.1.1  # Most stable match for rasa 3.1
 
 # Optional NLP engine (only if used)
 # spacy==3.2.4
