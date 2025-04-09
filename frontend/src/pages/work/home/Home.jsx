@@ -1,5 +1,5 @@
 import React from 'react';
-import './dashboard.css';
+import './Home.css';
 import Header from './Header';
 import CardsRow from './CardsRow';
 import EventsPanel from './EventsPanel';
