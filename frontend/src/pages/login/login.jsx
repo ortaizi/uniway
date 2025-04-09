@@ -20,7 +20,11 @@ function Login() {
     setMessage('');
 
     try {
-      const response = await fetch("https://api.uniway.site/login", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      if (!API_URL) {
+        console.error("VITE_API_URL is not defined!");
+      }
+      const response = await fetch(`${API_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

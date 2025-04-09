@@ -1,12 +1,12 @@
 import React from 'react';
 import './dashboard.css';
 
-import Sidebar from './sidebar';
-import Header from './home/header';
-import CardsRow from './home/cardsrow';
-import EventsPanel from './home/eventspanel';
-import EmailsPanel from './home/emailspanel';
-import TodoList from './home/todolist';
+import Sidebar from './sidebar.jsx';
+import Header from './home/header.jsx';
+import CardsRow from './home/cardsrow.jsx';
+import EventsPanel from './home/eventspanel.jsx';
+import EmailsPanel from './home/emailspanel.jsx';
+import TodoList from './home/todolist.jsx';
 
 export default function Dashboard() {
   return (
