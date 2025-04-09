@@ -1,17 +1,18 @@
 import React from 'react';
+import Sidebar from './components/Sidebar';
+import Topbar from './components/Topbar';
 import { Outlet } from 'react-router-dom';
-import Sidebar from './components/Sidebar.jsx';
-import Topbar from './components/Topbar.jsx';
 import './components/Sidebar.css';
+import './components/Topbar.css';
 
 export default function Work() {
   return (
-    <div className="dashboard-container">
+    <div className="work-layout">
       <Sidebar />
       <div className="main-content">
         <Topbar />
-        <div className="page-content">
-          <Outlet /> {/* מציג את התוכן המשתנה */}
+        <div className="content-area">
+          <Outlet /> {/* This renders the nested route */}
         </div>
       </div>
     </div>
