@@ -6,7 +6,7 @@ import target from '../../assets/target-rb.png';
 import { useNavigate } from 'react-router-dom';
 
 
-function HomePage() {
+function Home() {
   const navigate = useNavigate();
 
   return (
