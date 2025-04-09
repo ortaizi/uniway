@@ -1,96 +1,54 @@
-body {
-  margin: 0;
-  font-family: 'Rubik', sans-serif;
-  background-color: #f9fbfd;
-  color: #2e2e2e;
-  direction: rtl;
-  overflow: hidden;
-}
-
-.dashboard-container {
-  display: flex;
+.sidebar {
+  width: 250px;
   height: 100vh;
-  width: 100vw;
-}
-
-.dashboard-main {
-  flex: 1;
-  padding: 2rem;
-  margin-right: 260px; /* משאיר מקום לסרגל צד קבוע */
-  overflow-y: auto;
-}
-
-/* 👋 ברכה */
-.dashboard-header h1 {
-  font-size: 2rem;
-  margin: 0;
-}
-
-.dashboard-header p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-top: 0.5rem;
-}
-
-/* 🧩 שורת כרטיסים */
-.cards-row {
+  background-color: #0c1e35; /* כחול חכם כהה */
+  color: #ffffff;
   display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  font-family: 'Rubik', sans-serif; /* פונט מודרני ונעים */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #6edfff; /* תכלת מודגש */
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
 }
 
-.card {
-  background-color: white;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex: 1;
-  min-width: 220px;
-}
-
-/* 🗂️ פאנלים */
-.events-panel,
-.emails-panel,
-.todo-list {
-  background-color: white;
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.events-panel h2,
-.emails-panel h2,
-.todo-list h2 {
-  font-size: 1.3rem;
-  margin-top: 0;
-}
-
-/* 🔘 כפתורים */
-button {
-  background-color: #4A90E2;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.2rem;
   font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  color: #ffffff;
+  transition: background-color 0.2s ease, color 0.2s ease;
   cursor: pointer;
-  transition: background-color 0.3s;
+  text-decoration: none;
 }
 
-button:hover {
-  background-color: #387ad0;
+.nav-item:hover {
+  background-color: #133e63;
+  color: #6edfff;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  margin-bottom: 10px;
-  font-size: 1rem;
+.nav-icon {
+  font-size: 1.5rem;
+  color: inherit;
 }

@@ -1,0 +1,11 @@
+/* work.css */
+.work-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f8fc; /* רקע בהיר חכם */
+  }
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  

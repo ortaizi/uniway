@@ -3,7 +3,7 @@ import './login.css';
 import { useNavigate } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import animationData from '../../assets/ani-loading-login.json';
-import SuccessPopup from './successpopup.jsx';
+import SuccessPopup from './Successpopup.jsx';
 import loginMainAnimation from '../../assets/ani-main-login.json';
 
 function Login() {
