@@ -136,3 +136,17 @@ button {
 button:hover {
   background-color: #2e65b7;
 }
+
+.nav-item {
+display: flex;
+align-items: center;
+gap: 10px;
+color: white;
+text-decoration: none;
+font-size: 18px;
+transition: 0.3s;
+}
+
+.nav-icon {
+font-size: 20px;
+}
