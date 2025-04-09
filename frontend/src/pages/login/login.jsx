@@ -49,7 +49,7 @@ function Login() {
 
   const handleSuccessPopupClose = () => {
     setLoginSuccess(false);
-    navigate('/dashboard');
+    navigate('/work');
   };
 
   return (
