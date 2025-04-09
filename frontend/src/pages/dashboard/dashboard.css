@@ -1,78 +1,42 @@
-/* 🎨 כללי */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #FDF6EE; /* רקע חמים */
+  font-family: 'Roboto', sans-serif;
+  background-color: #F9F9F9; /* רקע לבן ונעים */
   direction: rtl;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* מונע גלילה */
 }
 
-/* 🧱 קונטיינר ראשי */
 .dashboard-container {
   display: flex;
+  width: 100%;
   min-height: 100vh;
 }
 
-/* 🟫 סרגל צד */
 .sidebar {
-  width: 220px;
-  background-color: #2D2D2D;
+  width: 300px;
+  background-color: #4A90E2; /* כחול בהיר */
   color: white;
   padding: 20px;
   min-height: 100vh;
-  position: fixed;
-  right: 0;
-  top: 0;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-.nav-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.nav-item {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.nav-item:hover {
-  color: #FFCE74;
-}
-
-/* 🟦 אזור תוכן עיקרי */
 .dashboard-main {
-  margin-right: 220px; /* שיישב ליד הסרגל */
-  padding: 24px;
+  margin-right: 300px;
+  padding: 30px;
   flex: 1;
-}
-
-/* 👋 אזור הברכה */
-.dashboard-header {
-  margin-bottom: 30px;
+  background-color: #FFFFFF; /* לבן */
 }
 
 .dashboard-header h1 {
-  margin: 0;
-  font-size: 26px;
+  font-size: 2rem;
   color: #2E2E2E;
+  font-weight: 700; /* יותר מודגש */
 }
 
-.dashboard-header p {
-  margin-top: 8px;
-  font-size: 16px;
-  color: #666666;
-}
-
-/* 🧩 שורת כרטיסים */
 .cards-row {
   display: flex;
   gap: 20px;
@@ -84,69 +48,21 @@ body {
   background-color: white;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   flex: 1;
-  min-width: 220px;
+  min-width: 300px;
 }
 
-/* 🗂️ פאנלים (אירועים, מיילים, טודו) */
-.events-panel,
-.emails-panel,
-.todo-list {
-  background-color: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 24px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-}
-
-.events-panel h2,
-.emails-panel h2,
-.todo-list h2 {
-  margin-top: 0;
-  font-size: 20px;
-  color: #2E2E2E;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  margin-bottom: 12px;
-  color: #444;
-  font-size: 16px;
-}
-
-/* 🔘 כפתורים */
 button {
-  background-color: #387ADF;
+  background-color: #4A90E2; /* כחול בהיר */
   color: white;
-  padding: 10px 18px;
-  border: none;
+  padding: 12px 20px;
   border-radius: 8px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   transition: background-color 0.3s;
+  border: none;
 }
 
 button:hover {
-  background-color: #2e65b7;
-}
-
-.nav-item {
-display: flex;
-align-items: center;
-gap: 10px;
-color: white;
-text-decoration: none;
-font-size: 18px;
-transition: 0.3s;
-}
-
-.nav-icon {
-font-size: 20px;
+  background-color: #357ABD; /* כחול כהה */
 }
