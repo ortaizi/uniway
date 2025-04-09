@@ -1,9 +1,9 @@
 // Home.jsx
 import React from 'react';
-import CardsRow from './CardsRow';
-import EventsPanel from './EventsPanel';
-import EmailsPanel from './EmailsPanel';
-import TodoList from './TodoList';
+import CardsRow from './cardsrow';
+import EventsPanel from './eventspanel';
+import EmailsPanel from './emailspanel';
+import TodoList from './todolist';
 import './home.css';
 
 export default function Home() {
