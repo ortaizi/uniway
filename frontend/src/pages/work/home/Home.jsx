@@ -6,17 +6,14 @@ import EventsPanel from './EventsPanel';
 import EmailsPanel from './EmailsPanel';
 import TodoList from './TodoList';
 
-export default function Dashboard() {
+export default function Home() {
   return (
-    <div className="dashboard-container">
-      <Sidebar />
-      <main className="dashboard-main">
-        <Header />
-        <CardsRow />
-        <EventsPanel />
-        <EmailsPanel />
-        <TodoList />
-      </main>
-    </div>
+    <main className="dashboard-main">
+      <Header />
+      <CardsRow />
+      <EventsPanel />
+      <EmailsPanel />
+      <TodoList />
+    </main>
   );
 }
