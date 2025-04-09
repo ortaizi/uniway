@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiHome, FiMessageSquare, FiClipboard, FiBookOpen } from 'react-icons/fi';
-
+import './Sidebar.css'; // Assuming you have a CSS file for styling
 export default function Sidebar() {
   return (
     <aside className="sidebar">
