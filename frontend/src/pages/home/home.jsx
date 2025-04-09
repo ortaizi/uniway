@@ -1,4 +1,4 @@
-import './home.css';
+import './Home.css';
 import logo from '../../assets/uniway-logo.png';
 import lightbulb from '../../assets/lightbulb-rb.png';
 import pencil from '../../assets/pencil-rb.png';
