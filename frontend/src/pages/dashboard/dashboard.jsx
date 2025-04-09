@@ -1,7 +1,7 @@
 import React from 'react';
 import './dashboard.css';
 
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 import Header from './home/Header';
 import CardsRow from './home/CardsRow';
 import EventsPanel from './home/EventsPanel';
