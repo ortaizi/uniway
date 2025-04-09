@@ -5,10 +5,10 @@ import HomePage from './pages/home/Home.jsx';
 import Login from './pages/login/Login.jsx';
 import Work from './pages/Work.jsx';
 
-import Home from './pages/home/Home.jsx';
-import Chat from './pages/chat/Chat.jsx';
-import Assignments from './pages/assignments/Assignments.jsx';
-import Courses from './pages/courses/Courses.jsx';
+import Home from './pages/work/home/Home.jsx';
+import Chat from './pages/work/chat/Chat.jsx';
+import Assignments from './pages/work/assignments/Assignments.jsx';
+import Courses from './pages/work/courses/Courses.jsx';
 
 function App() {
   return (
