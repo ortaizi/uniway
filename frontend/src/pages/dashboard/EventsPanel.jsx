@@ -7,7 +7,7 @@ export default function EventsPanel() {
       <ul>
         <li>🎤 הרצאה: איך לפרוץ להייטק – 11.4</li>
         <li>💼 יריד תעסוקה – 12.4</li>
-        <li>🌱 סדנת ניהול זמן – 10.4</li>
+        
       </ul>
       <button>לכל האירועים</button>
     </section>
