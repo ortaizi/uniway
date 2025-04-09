@@ -1,10 +1,10 @@
 __pycache__/
 *.pyc
 node_modules/
+venv/
 *.zip
 *.mov
 *.mp4
 *.webm
 *.svg
 chromedriver
-backend/venv/

@@ -1,30 +1,27 @@
-// Sidebar.jsx
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { FiHome, FiMessageSquare, FiClipboard, FiBookOpen } from 'react-icons/fi';
-import './sidebar.css';
 
 export default function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="logo">Uniway</div>
       <nav className="nav-menu">
-        <NavLink to="/dashboard" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`} end>
+        <a href="#" className="nav-item">
           <FiHome className="nav-icon" />
           <span>בית</span>
-        </NavLink>
-        <NavLink to="/dashboard/chat" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+        </a>
+        <a href="#" className="nav-item">
           <FiMessageSquare className="nav-icon" />
           <span>צ'אט</span>
-        </NavLink>
-        <NavLink to="/dashboard/assignments" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+        </a>
+        <a href="#" className="nav-item">
           <FiClipboard className="nav-icon" />
           <span>מטלות</span>
-        </NavLink>
-        <NavLink to="/dashboard/courses" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+        </a>
+        <a href="#" className="nav-item">
           <FiBookOpen className="nav-icon" />
           <span>קורסים</span>
-        </NavLink>
+        </a>
       </nav>
     </aside>
   );

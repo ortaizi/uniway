@@ -10,19 +10,15 @@ import os
 
 app = FastAPI()
 
-
-origins = [
-    "http://localhost:5173",
-    "https://uniway.site"
-]
-
+# CORS settings
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],               # <--- Make sure this list is used!
+    allow_origins=["https://uniway.site"],  # In production, set your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 USERS_FILE = "users.json"
 
 # Load users from file
