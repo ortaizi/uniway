@@ -1,54 +1,66 @@
 .sidebar {
-  width: 250px;
+  width: 90px;
   height: 100vh;
-  background-color: #0c1e35; /* כחול חכם כהה */
-  color: #ffffff;
+  background-color: #ffffff;
+  border-left: 1px solid #e0e0e0;
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem;
-  font-family: 'Rubik', sans-serif; /* פונט מודרני ונעים */
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  padding-top: 1.5rem;
+  font-family: 'Assistant', sans-serif;
+  direction: rtl;
   position: fixed;
   right: 0;
   top: 0;
+  z-index: 10;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.04);
 }
 
+/* Logo placeholder (if you use text or an icon at the top) */
 .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #6edfff; /* תכלת מודגש */
-  margin-bottom: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e2a38;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
-.nav-menu {
+/* Sidebar navigation */
+.sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  align-items: center;
 }
 
 .nav-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  color: #ffffff;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.75rem;
+  color: #1e2a38;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
-  text-decoration: none;
-}
-
-.nav-item:hover {
-  background-color: #133e63;
-  color: #6edfff;
+  padding: 0.5rem;
+  width: 100%;
 }
 
 .nav-icon {
   font-size: 1.5rem;
-  color: inherit;
+  margin-bottom: 0.25rem;
+}
+
+/* Hover effect */
+.nav-item:hover {
+  color: #387adf;
+}
+
+/* Active item style */
+.nav-item.active {
+  background-color: #e8f0fe;
+  color: #1e2a38;
+  font-weight: bold;
+  border-radius: 12px;
+  box-shadow: 0 0 6px rgba(30, 42, 56, 0.1);
 }

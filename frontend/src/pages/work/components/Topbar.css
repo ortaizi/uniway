@@ -1,74 +1,49 @@
-/* File: Topbar.css */
+/* Topbar.css */
 
 .topbar {
-    width: 100%;
     height: 64px;
     background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
     display: flex;
     align-items: center;
-    padding: 0 20px;
     justify-content: space-between;
-    font-family: 'Rubik', sans-serif;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 0 24px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    font-family: 'Assistant', sans-serif;
+    position: relative;
+    z-index: 10;
   }
   
-  .topbar-left .logo {
-    height: 28px;
-  }
-  
-  .topbar-center {
-    flex: 1;
+  /* Left area (notifications, settings, etc.) */
+  .topbar-left {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    gap: 16px;
   }
   
-  .search-input {
-    width: 300px;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 14px;
-    outline: none;
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  
+  /* Right area (logo, title, etc.) */
   .topbar-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
   }
   
+  /* Title styling */
+  .topbar-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e2a38; /* smart blue */
+  }
+  
+  /* Icons (if needed) */
   .topbar-icon {
     font-size: 20px;
-    color: #1e88e5;
+    color: #1e2a38;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
   }
   
   .topbar-icon:hover {
-    color: #005cb2;
-  }
-  
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .profile-pic {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .profile-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
+    color: #387ADF;
   }
   
