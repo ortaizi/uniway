@@ -1,50 +1,45 @@
-/* Work.css */
-
-.work-layout {
-  display: flex;
-  height: 100vh;
-  font-family: 'Assistant', sans-serif;
-}
-
-/* Sidebar קבוע מימין */
-.sidebar {
-  flex-shrink: 0;
-  width: 240px;
-  height: 100vh;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 20;
-}
-
-/* תוכן ראשי כולל טופ בר ורכיבים פנימיים */
-.main-content {
-  flex: 1;
-  margin-right: 240px; /* משאיר מקום לסייד בר */
+.dashboard-home {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  gap: 2rem;
 }
 
-/* Topbar */
-.topbar {
-  height: 60px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #dbe3ec;
+.dashboard-heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-main);
+  font-family: var(--font-main);
+  margin-bottom: 1rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.dashboard-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-light);
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 1.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-family: var(--font-main);
 }
 
-/* תוכן פנימי של כל תת עמוד */
-.content-area {
-  flex: 1;
-  padding: 2rem;
-  background-color: #f5f8fb;
-  overflow-y: auto;
+.dashboard-card h3 {
+  font-size: 1.3rem;
+  color: var(--color-main);
+}
+
+.dashboard-card p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.dashboard-card .btn {
+  align-self: flex-start;
+  font-size: 0.95rem;
 }

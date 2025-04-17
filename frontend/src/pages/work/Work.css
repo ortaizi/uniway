@@ -1,45 +1,43 @@
-/* ✅ עמוד כללי – רקע אוורירי */
+/* רקע כללי לעמוד */
 .work-page {
   min-height: 100vh;
   background-color: #f9fafb;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   padding: 30px;
   box-sizing: border-box;
 }
 
-/* ✅ כרטיס דשבורד מרכזי */
+/* כרטיס הדשבורד הכללי */
 .work-container {
   display: flex;
   width: 100%;
   max-width: 1400px;
   border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   background-color: var(--color-white);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* ✅ סיידבר מעוגל בקצה ימין (RTL) */
+/* סיידבר מימין, עם עיגול ולא חתוך */
 .sidebar-wrapper {
   width: 240px;
   background-color: #f1f5f9;
-  border-top-right-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
   box-shadow: inset -1px 0 0 var(--color-border);
+  overflow: hidden; /* ✅ כדי שהעיגול לא ייחתך */
   z-index: 2;
 }
 
-/* ✅ עמוד ראשי */
+/* אזור התוכן */
 .main-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
 }
 
-/* ✅ אזור עם Padding לתוכן הפנימי */
+/* תוכן פנימי עם רווחים */
 .main-content {
   flex: 1;
   padding: 30px;
@@ -48,13 +46,14 @@
   box-sizing: border-box;
 }
 
-/* ✅ התוכן שמוחלף – עטוף בכרטיס פנימי */
+/* תוכן משתנה עטוף בכרטיס לבן */
 .content-card {
   background-color: var(--color-white);
-  border-radius: var(--radius-lg);
+  border-radius: 24px;
   padding: 2rem;
   box-shadow: var(--shadow-light);
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
