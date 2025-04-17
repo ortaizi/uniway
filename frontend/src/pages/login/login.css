@@ -1,16 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Work+Sans:wght@300;400;600&display=swap');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Work Sans', sans-serif;
-  background-color: #ffffff;
-}
+/* Login.css – מותאם לעיצוב הכללי של Uniway */
 
 .login-container {
   display: flex;
@@ -23,12 +11,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 
 .form-section h2 {
   font-size: 32px;
-  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-family: var(--font-main);
+  color: var(--color-main);
   margin-bottom: 10px;
 }
 
@@ -36,6 +26,7 @@ body {
   color: #555;
   margin-bottom: 30px;
   font-size: 16px;
+  font-family: var(--font-main);
 }
 
 form {
@@ -45,17 +36,25 @@ form {
 
 label {
   margin-bottom: 6px;
-  font-size: 14px;
-  color: #444;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--color-main);
+  font-family: var(--font-main);
 }
 
 input[type="text"],
 input[type="password"] {
   padding: 12px;
   font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   margin-bottom: 20px;
+  font-family: var(--font-main);
+}
+
+input:focus {
+  border-color: var(--color-main);
+  outline: none;
 }
 
 .form-options {
@@ -72,23 +71,37 @@ input[type="password"] {
 
 .forgot {
   font-size: 14px;
-  color: #57bfc1;
+  color: var(--color-accent);
+  font-family: var(--font-main);
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot:hover {
+  color: var(--color-accent-dark);
 }
 
 button {
-  background-color: #57bfc1;
-  color: white;
+  background-color: var(--color-accent);
+  color: var(--color-white);
   padding: 14px;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-main);
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #009a9a;
+  background-color: var(--color-accent-dark);
+}
+
+.login-message {
+  margin-top: 15px;
+  font-size: 14px;
+  color: var(--color-main);
+  font-family: var(--font-main);
 }
 
 .image-section {

@@ -1,8 +1,91 @@
-/* assignments.css */
+/* Assignments.css */
 
-.assignments-page {
-    padding: 24px;
-    color: #e0e0e0;
-    font-family: 'Rubik', sans-serif;
-  }
-  
+.assignments-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin: 2rem 2rem 0 2rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  font-family: 'Assistant', sans-serif;
+  direction: rtl;
+}
+
+.assignments-header {
+  margin-bottom: 1.5rem;
+}
+
+.assignments-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #1e2a38;
+}
+
+.assignments-description {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-top: 0.3rem;
+}
+
+.assignments-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+}
+
+.assignments-table th {
+  background-color: #f4f6f8;
+  color: #1e2a38;
+  padding: 16px 12px;
+  text-align: right;
+  font-weight: 700;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.assignments-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+  vertical-align: middle;
+}
+
+/* כפתור הגשה */
+.assignment-button {
+  background-color: #1e2a38;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.assignment-button:hover {
+  background-color: #324359;
+}
+
+/* 🗑️ אייקון מחיקה */
+.delete-icon {
+  color: #ef4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.delete-icon:hover {
+  transform: scale(1.1);
+}
+
+/* 🧾 PDF icon */
+.pdf-icon {
+  color: #f87171;
+  font-size: 1.2rem;
+}
+
+/* כפתורים בתוך הטבלה */
+.assignments-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

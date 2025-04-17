@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiHome, FiMessageSquare, FiClipboard, FiBookOpen } from 'react-icons/fi';
+import { FaWhatsapp, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import './Sidebar.css';
-import logo from '/src/assets/uniway-logo-white.png';
+import logo from '/src/assets/uniway-logo_white.png';
 
 export default function Sidebar() {
   return (
@@ -11,7 +12,6 @@ export default function Sidebar() {
         <img src={logo} alt="Uniway Logo" className="logo-image" />
         <div className="logo-text">
           <h1>Uniway</h1>
-          <p>uniway.site</p>
         </div>
       </div>
 
@@ -33,6 +33,18 @@ export default function Sidebar() {
           <span>קורסים</span>
         </NavLink>
       </nav>
+
+        <div className="social-icons">
+    <a href="https://facebook.com" target="_blank" rel="noreferrer">
+      <FaFacebookF />
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noreferrer">
+      <FaInstagram />
+    </a>
+    <a href="https://whatsapp.com" target="_blank" rel="noreferrer">
+      <FaWhatsapp />
+    </a>
+  </div>
     </aside>
   );
 }

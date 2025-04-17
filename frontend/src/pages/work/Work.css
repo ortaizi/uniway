@@ -1,29 +1,59 @@
-/* 🖥️ עיצוב כללי של עמוד העבודה */
-.work-layout {
-  display: flex;
+/* רקע כללי */
+.work-page {
   height: 100vh;
-  width: 100vw;
-  background-color: #f7f9fb; /* רקע כללי בהיר ונעים */
-  direction: rtl;
-  font-family: 'Assistant', sans-serif;
+  background-color: #f9fafb;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* 🟦 תוכן ראשי */
-.main-content {
+/* מסגרת כללית מעוגלת */
+.work-container {
+  display: flex;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+  background-color: var(--color-white);
+}
+
+/* סיידבר */
+.sidebar-wrapper {
+  width: 240px;
+  background-color: #f1f5f9; /* אפור בהיר */
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+  box-shadow: inset -1px 0 0 #e2e8f0;
+  z-index: 2;
+}
+
+/* אזור ראשי */
+.main-wrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  padding: 0;
+  height: 100%;
   overflow: hidden;
-  height: 100vh;
 }
 
-/* 📦 תוכן מתחלף (Outlet) */
-.content-area {
+/* טופבר נשאר קבוע למעלה */
+.main-wrapper .topbar {
+  z-index: 10;
+}
+
+/* תוכן פנימי עם ריווח */
+.main-content {
   flex: 1;
-  padding: 2rem;
+  padding: 30px;
+  background-color: #f9fafb;
   overflow-y: auto;
-  background-color: #f0f4f8;
-  border-top: 1px solid #dbe3ec;
+  box-sizing: border-box;
+}
+
+/* אזור התוכן עצמו */
+.content-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-light);
+  min-height: 100%;
 }

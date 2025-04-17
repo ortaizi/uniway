@@ -1,22 +1,28 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Topbar from './components/Topbar';
-import { Outlet } from 'react-router-dom';
-
-import './components/Sidebar.css';
-import './components/Topbar.css';
 import './Work.css';
 
-export default function Work() {
+function Work() {
   return (
-    <div className="work-layout">
-      <Sidebar />
-      <div className="main-content">
-        <Topbar />
-        <div className="content-area">
-          <Outlet />
+    <div className="work-page">
+      <div className="work-container">
+        <div className="sidebar-wrapper">
+          <Sidebar />
+        </div>
+
+        <div className="main-wrapper">
+          <Topbar />
+          <div className="main-content">
+            <div className="content-card">
+              <Outlet />
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 }
+
+export default Work;

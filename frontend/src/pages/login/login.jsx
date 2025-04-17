@@ -9,6 +9,7 @@ import loginMainAnimation from '../../assets/ani-main-login.json';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [studentId, setStudentId] = useState(''); // ✅ new field
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
@@ -20,29 +21,32 @@ function Login() {
     setMessage('');
 
     try {
-      const response = await fetch("https://api.uniway.site/login", {
+      const API_URL = import.meta.env.VITE_API_URL;
+
+      const response = await fetch(`${API_URL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password, studentId }), // ✅ send ID too
       });
 
       const data = await response.json();
       setLoading(false);
 
       if (response.status === 200 && data.status === 'success') {
+        localStorage.setItem("username", username);
         setLoginSuccess(true);
-        setMessage('✅ Login successful!');
+        setMessage('✅ ההתחברות הצליחה!');
       } else if (response.status === 401) {
-        setMessage('❌ Invalid username or password');
+        setMessage('❌ שם משתמש או סיסמה שגויים');
       } else {
-        setMessage('❌ Something went wrong. Please try again later.');
+        setMessage('❌ משהו השתבש. נסה שוב מאוחר יותר.');
       }
 
     } catch (error) {
       setLoading(false);
-      setMessage('❌ There was an error with the request: ' + error.message);
+      setMessage('❌ שגיאה בבקשה: ' + error.message);
       console.error('Login error:', error);
     }
   };
@@ -53,26 +57,36 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container" dir="rtl">
       <div className="form-section">
-        <h2>Let's Get Started</h2>
-        <p>Log in to your student dashboard and manage your academic life in one place.</p>
+        <h2>בוא נתחיל</h2>
+        <p>התחבר לדשבורד שלך ונהל את חייך האקדמיים במקום אחד.</p>
         <form onSubmit={handleLogin}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="studentId">מספר תעודת זהות</label>
+          <input
+            type="text"
+            id="studentId"
+            placeholder="הכנס ת״ז"
+            value={studentId}
+            onChange={(e) => setStudentId(e.target.value)}
+            required
+          />
+
+          <label htmlFor="username">שם משתמש</label>
           <input
             type="text"
             id="username"
-            placeholder="Enter your username"
+            placeholder="הכנס שם משתמש"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
 
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">סיסמה</label>
           <input
             type="password"
             id="password"
-            placeholder="Enter your password"
+            placeholder="הכנס סיסמה"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -80,12 +94,12 @@ function Login() {
 
           <div className="form-options">
             <label className="remember">
-              <input type="checkbox" defaultChecked /> Remember me
+              <input type="checkbox" defaultChecked /> זכור אותי
             </label>
-            <a href="#" className="forgot">Forgot Password?</a>
+            <a href="#" className="forgot">שכחת סיסמה?</a>
           </div>
 
-          <button type="submit" disabled={loading}>Login</button>
+          <button type="submit" disabled={loading}>התחברות</button>
         </form>
 
         {loading && (

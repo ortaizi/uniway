@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
+
+:root {
+  --color-main: #1e2a38;
+  --color-accent: #8ef5e4;
+  --color-accent-dark: #219ebc;
+  --color-background: #f6f8fa;
+  --color-white: #ffffff;
+  --color-border: #e2e8f0;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+  --font-main: 'Assistant', sans-serif;
+}
+
+/* בסיס כללי */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  font-family: var(--font-main);
+  direction: rtl;
+}
+
+/* שורש React */
+#root {
+  height: 100%;
+  background-color: var(--color-background);
+}
+
+/* כפתור כללי */
+.btn {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: var(--font-main);
+}
+
+.btn:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* כרטיס */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--color-border);
+  margin-bottom: 1.5rem;
+}
+
+/* טקסט מודגש */
+.bold {
+  font-weight: 700;
+  color: var(--color-main);
+}
