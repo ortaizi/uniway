@@ -1,14 +1,19 @@
-/* רקע כללי */
+/* רקע כללי לעמוד */
 .work-page {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f9fafb;
-  padding: 20px;
+  padding: 30px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* מסגרת כללית מעוגלת */
+/* הקופסה הראשית של הדשבורד */
 .work-container {
   display: flex;
+  flex: 1;
+  max-width: 1400px;
   height: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -16,17 +21,17 @@
   background-color: var(--color-white);
 }
 
-/* סיידבר */
+/* סיידבר עם עיגול בקצה ימין (ב־RTL) */
 .sidebar-wrapper {
   width: 240px;
-  background-color: #f1f5f9; /* אפור בהיר */
+  background-color: #f1f5f9;
   border-top-right-radius: var(--radius-lg);
   border-bottom-right-radius: var(--radius-lg);
-  box-shadow: inset -1px 0 0 #e2e8f0;
+  box-shadow: inset -1px 0 0 var(--color-border);
   z-index: 2;
 }
 
-/* אזור ראשי */
+/* אזור תוכן כללי */
 .main-wrapper {
   flex: 1;
   display: flex;
@@ -35,12 +40,7 @@
   overflow: hidden;
 }
 
-/* טופבר נשאר קבוע למעלה */
-.main-wrapper .topbar {
-  z-index: 10;
-}
-
-/* תוכן פנימי עם ריווח */
+/* אזור התוכן המרכזי */
 .main-content {
   flex: 1;
   padding: 30px;
@@ -49,7 +49,7 @@
   box-sizing: border-box;
 }
 
-/* אזור התוכן עצמו */
+/* כאן יושב Outlet בתוך קופסה פנימית */
 .content-card {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
