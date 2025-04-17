@@ -8,24 +8,22 @@ function Work() {
   return (
     <div className="work-page">
       <div className="work-container">
-        
-        {/* סיידבר מימין עם רקע בהיר ועיצוב מעוגל */}
+
+        {/* ✅ Sidebar בתוך ה-container */}
         <div className="sidebar-wrapper">
           <Sidebar />
         </div>
 
-        {/* תוכן ראשי */}
+        {/* ✅ תוכן ראשי כולל Topbar ותוכן הדף */}
         <div className="main-wrapper">
-          <Topbar />
-
           <div className="main-content">
-            {/* כל תוכן הדשבורד מופיע כאן */}
             <div className="content-card">
+              <Topbar />         {/* ✅ כאן מופיע רק פעם אחת */}
               <Outlet />
             </div>
           </div>
-          
         </div>
+
       </div>
     </div>
   );
