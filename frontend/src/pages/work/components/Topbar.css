@@ -1,22 +1,27 @@
 .topbar {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
-  padding: 0.1rem 0.5rem 0.1rem 0.5rem; /* צמצום רווח מלמעלה */
-  background-color: transparent; /* רקע שקוף */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* ✅ קו דק ונעים */
+  align-items: center;
+  padding: 0.6rem 1.5rem 0.6rem 1.5rem;
+  background-color: transparent; /* ✅ שקוף */
+  border-bottom: 1px solid var(--color-border); /* ✅ קו תחתון דק */
   box-shadow: none;
   height: auto;
   margin: 0;
   box-sizing: border-box;
+  gap: 1rem;
 }
 
+.topbar-icons {
+  display: flex;
+  gap: 1rem;
+}
 
 .topbar-icon {
-  font-size: 1.8rem; /* ✅ אייקון גדול יותר */
+  font-size: 1.8rem;
   color: var(--color-main);
   cursor: pointer;
-  padding: 8px;
+  padding: 5px;
   border-radius: 50%;
   transition: background 0.2s ease, color 0.2s ease;
 }

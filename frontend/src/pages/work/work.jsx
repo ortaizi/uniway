@@ -11,10 +11,10 @@ function Work() {
         <Sidebar />
 
         <div className="main-wrapper">
-          <Topbar />
 
           <div className="main-content">
             <div className="inner-content-card"> {/* ✅ כרטיסייה פנימית רק ל־Outlet */}
+              <Topbar />
               <Outlet />
             </div>
           </div>
