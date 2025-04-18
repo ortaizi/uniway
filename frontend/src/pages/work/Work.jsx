@@ -7,20 +7,18 @@ import './Work.css';
 function Work() {
   return (
     <div className="work-page">
-      <div className="work-container">
-        
-        {/* ✅ Sidebar ישירות בתוך container */}
+      <div className="work-card">
         <Sidebar />
 
         <div className="main-wrapper">
+          <Topbar />
+
           <div className="main-content">
-            <div className="content-card">
-              <Topbar />
+            <div className="inner-content-card"> {/* ✅ כרטיסייה פנימית רק ל־Outlet */}
               <Outlet />
             </div>
           </div>
         </div>
-        
       </div>
     </div>
   );

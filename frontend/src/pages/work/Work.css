@@ -1,23 +1,23 @@
+/* עיצוב כללי של הדף */
 .work-page {
   height: 100vh;
-  overflow: hidden;
-  background-color: #f9fafb;
-  display: flex;
-  padding: 0;
-  margin: 0;
+  background-color: var(--color-background);
+  padding: 1.5rem;
   box-sizing: border-box;
 }
 
-.work-container {
-  display: flex;
-  width: 100%;
+/* כרטיס ראשי שכולל את הסיידבר וה־main */
+.work-card {
   height: 100%;
-  border-radius: 24px 0 0 24px;
-  background-color: var(--color-white);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+  box-sizing: border-box;
 }
 
+/* עוטף את הטופבר וה־Outlet */
 .main-wrapper {
   flex: 1;
   display: flex;
@@ -25,22 +25,27 @@
   height: 100%;
 }
 
+/* טופבר למעלה */
+.topbar-wrapper {
+  padding: 1.5rem 2rem 1rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* תוכן גלול רק בתוך ה־Outlet */
 .main-content {
   flex: 1;
   height: 100%;
   overflow-y: auto;
-  padding: 30px;
-  background-color: #f9fafb;
+  padding: 2rem;
+  background-color: var(--color-background);
   box-sizing: border-box;
 }
 
-.content-card {
+/* ✅ כרטיס פנימי לעמודים עצמם (כמו הבית, מטלות וכו’) */
+.inner-content-card {
   background-color: var(--color-white);
-  border-radius: 24px;
+  border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-light);
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  min-height: 100%;
+  box-sizing: border-box;
 }
