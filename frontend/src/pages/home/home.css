@@ -7,21 +7,33 @@
 
 /* טופ בר ממורכז */
 .topbar {
-  background-color: var(--color-white);
-  padding: 1.2rem 2rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-light);
-  display: flex;
-  justify-content: center;
-  margin: 1rem auto 2rem auto;
-  max-width: 1200px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  padding: 1rem 1rem !important;
+
+  background-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid #D0D7DE !important;
+
+  max-width: 1200px !important;
+  margin: 0.01rem auto 0.1rem auto !important;
 }
 
 .topbar-content {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  direction: rtl;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  direction: rtl !important;
+  justify-content: center !important;
+}
+
+.topbar-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.3rem !important;
 }
 
 /* לוגו + שם */
@@ -51,55 +63,55 @@
 
 /* כותרת ראשית */
 .main-title {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--color-main);
-  margin-bottom: 1rem;
+  margin-bottom: 1.4rem;
 }
 
 /* תיאור מתחת לכותרת */
 .main-description {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.25rem;
+  line-height: 1.75;
   color: var(--color-main);
-  margin-bottom: 3rem;
+  margin-bottom: 3.2rem;
 }
 
 /* שלושת הכרטיסים */
 .features {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .feature {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  width: 300px;
+  padding: 1rem;
+  width: 320px;
   box-shadow: var(--shadow-light);
   border: 1px solid var(--color-border);
   text-align: center;
 }
 
 .icon {
-  height: 40px;
-  margin-bottom: 1rem;
+  height: 65px; /* ⬆️ מוגדל מ־44px */
+  margin-bottom: 0.1rem;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.35rem; /* ⬆️ היה 1.25rem */
   font-weight: 700;
   color: var(--color-main);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
 }
 
 .feature p {
-  font-size: 0.95rem;
+  font-size: 1.1rem; /* ⬆️ היה 1.02rem */
   color: var(--color-main);
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 /* כפתור */
@@ -111,8 +123,8 @@ h3 {
   background-color: var(--color-accent);
   color: var(--color-white);
   border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 13px 26px;
+  font-size: 1.05rem;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: background-color 0.3s ease;

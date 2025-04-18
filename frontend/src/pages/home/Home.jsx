@@ -10,11 +10,14 @@ function Home() {
 
   return (
     <div className="container" dir="rtl">
-      {/* ✅ טופ בר ממורכז ומיושר RTL */}
+      {/* ✅ טופ בר ממרוכז עם לוגו צמוד לשם */}
       <header className="topbar">
         <div className="topbar-content">
-          <img src={logo} alt="לוגו יוניוויי" className="topbar-logo" />
-          <span className="topbar-title">Uniway</span>
+          <div className="topbar-brand">
+            <span className="topbar-title">Uniway</span>
+            <img src={logo} alt="לוגו יוניוויי" className="topbar-logo" />
+            
+          </div>
           <a href="#about" className="topbar-link">מי אנחנו</a>
           <a href="#reviews" className="topbar-link">מה מספרים עלינו</a>
         </div>
