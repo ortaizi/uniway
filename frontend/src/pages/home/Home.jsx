@@ -1,4 +1,4 @@
-import './Home.css';
+import './home.css';
 import logo from '../../assets/uniway-logo.png';
 import lightbulb from '../../assets/lightbulb-rb.png';
 import pencil from '../../assets/pencil-rb.png';
@@ -10,27 +10,21 @@ function Home() {
 
   return (
     <div className="container" dir="rtl">
-      <header className="header">
-        <div className="nav-right">
-          <img src={logo} alt="לוגו יוניוויי" className="logo-img" />
-          <h1 className="logo-text">
-            <span className="bold-part">Uni</span>
-            <span className="light-part">way</span>
-          </h1>
+      {/* ✅ טופ בר ממורכז ומיושר RTL */}
+      <header className="topbar">
+        <div className="topbar-content">
+          <img src={logo} alt="לוגו יוניוויי" className="topbar-logo" />
+          <span className="topbar-title">Uniway</span>
+          <a href="#about" className="topbar-link">מי אנחנו</a>
+          <a href="#reviews" className="topbar-link">מה מספרים עלינו</a>
         </div>
-
-        <nav className="nav-links">
-          <a href="#about">מי אנחנו</a>
-          <a href="#reviews">מה מספרים עלינו</a>
-        </nav>
       </header>
 
-
       <section className="main">
-        <h2 className="main-title">כל מה שסטודנט צריך – במקום אחד</h2>
+        <h1 className="main-title">כל מה שסטודנט צריך – במקום אחד</h1>
         <p className="main-description">
-          Uniway היא הפלטפורמה החכמה הראשונה מסוגה, <br />
-          שמחוברת לכל מערכות הלימודים השונות ומנגישה את המידע לסטודנטים <br />
+          Uniway היא הפלטפורמה החכמה הראשונה מסוגה,<br />
+          שמחוברת לכל מערכות הלימודים השונות ומנגישה את המידע לסטודנטים<br />
           בצורה פשוטה, נוחה וברורה – כדי שתוכלו להתמקד רק במה שחשוב באמת: ללמוד.
         </p>
 

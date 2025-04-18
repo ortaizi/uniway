@@ -1,50 +1,47 @@
-/* עיצוב כללי */
+/* מכולת העמוד */
 .container {
-  padding: 0;
-  margin: 0;
-  background-color: var(--color-background);
+  padding: 2rem;
+  direction: rtl;
+  text-align: center;
 }
 
-/* טופ בר */
+/* טופ בר ממורכז */
 .topbar {
   background-color: var(--color-white);
-  border-radius: var(--radius-lg);
   padding: 1.2rem 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-light);
+  display: flex;
+  justify-content: center;
   margin: 1rem auto 2rem auto;
   max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--shadow-light);
 }
 
-.topbar-left {
+.topbar-content {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1.5rem;
+  direction: rtl;
 }
 
+/* לוגו + שם */
 .topbar-logo {
-  height: 36px;
-  width: auto;
+  width: 36px;
+  height: auto;
 }
 
 .topbar-title {
-  font-weight: 700;
   font-size: 1.4rem;
+  font-weight: 700;
   color: var(--color-main);
 }
 
-.topbar-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
+/* קישורים */
 .topbar-link {
-  font-size: 1rem;
-  color: var(--color-main);
   text-decoration: none;
+  color: var(--color-main);
+  font-size: 1rem;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
@@ -52,55 +49,47 @@
   color: var(--color-accent);
 }
 
-/* תוכן מרכזי */
-.main {
-  text-align: center;
-  padding: 2rem;
-}
-
-.main h2 {
-  font-size: 1.8rem;
+/* כותרת ראשית */
+.main-title {
+  font-size: 2rem;
   font-weight: 700;
   color: var(--color-main);
   margin-bottom: 1rem;
 }
 
-.main p.description {
-  font-size: 1.1rem;
-  color: #444;
-  line-height: 1.8;
-  max-width: 700px;
-  margin: 0 auto 3rem auto;
+/* תיאור מתחת לכותרת */
+.main-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-main);
+  margin-bottom: 3rem;
 }
 
-/* כרטיסים */
+/* שלושת הכרטיסים */
 .features {
   display: flex;
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .feature {
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  width: 320px;
+  padding: 1.5rem;
+  width: 300px;
   box-shadow: var(--shadow-light);
+  border: 1px solid var(--color-border);
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.feature:hover {
-  transform: translateY(-4px);
 }
 
 .icon {
-  height: 50px;
+  height: 40px;
   margin-bottom: 1rem;
 }
 
-.feature h3 {
+h3 {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-main);
@@ -109,23 +98,25 @@
 
 .feature p {
   font-size: 0.95rem;
-  color: #333;
+  color: var(--color-main);
+  line-height: 1.6;
 }
 
 /* כפתור */
 .button-container {
-  margin-top: 2.5rem;
+  text-align: center;
 }
 
 .cta-button {
   background-color: var(--color-accent);
   color: var(--color-white);
-  padding: 0.8rem 1.8rem;
-  font-size: 1.1rem;
   border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: var(--font-main);
 }
 
 .cta-button:hover {
