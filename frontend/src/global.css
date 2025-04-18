@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
 
 :root {
-  --color-main: #1e2a38;
-  --color-accent: #8ef5e4;
-  --color-accent-dark: #219ebc;
-  --color-background: #f6f8fa;
-  --color-white: #ffffff;
-  --color-border: #e2e8f0;
-
+  --color-main: #1e2a38;              /* צבע עיקרי – כהה, יציב ומקצועי */
+  --color-accent: #3AAFA9;            /* צבע משלים – טורקיז מודרני ונעים */
+  --color-accent-dark: #2B7A78;       /* גוון כהה יותר לטורקיז – להובר / פוקוס */
+  --color-background: #F5F7FA;        /* רקע בהיר, ניטרלי אך לא לבן מוחלט */
+  --color-white: #ffffff;             /* לבן טהור – לרקעים ולכרטיסים */
+  --color-border: #DDE3EA;            /* גבול רך – מתאים לאזורים מופרדים */
+  
   --radius-lg: 20px;
   --radius-md: 12px;
 
@@ -65,3 +65,5 @@ body {
   font-weight: 700;
   color: var(--color-main);
 }
+
+/* כפתור ראשי חדש */
