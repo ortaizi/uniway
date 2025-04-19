@@ -96,7 +96,7 @@ select:focus {
 .password-toggle {
   position: absolute;
   left: 10px;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   color: var(--color-main);
   font-size: 20px;
