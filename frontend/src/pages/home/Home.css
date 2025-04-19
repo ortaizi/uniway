@@ -129,6 +129,8 @@ h3 {
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-family: var(--font-main);
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .cta-button:hover {
