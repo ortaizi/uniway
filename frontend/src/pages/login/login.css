@@ -1,17 +1,22 @@
-/* Login.css – מותאם לעיצוב הכללי של Uniway */
-
 .login-container {
   display: flex;
   min-height: 100vh;
 }
 
 .form-section {
-  flex: 1;
-  padding: 80px 60px;
+  flex: 1.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-white);
+}
+
+.form-inner {
+  width: 100%;
+  max-width: 480px; /* ✅ מצומצם לשדה צר ונעים */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: var(--color-white);
+  align-items: flex-end;
 }
 
 .form-section h2 {
@@ -20,18 +25,27 @@
   font-family: var(--font-main);
   color: var(--color-main);
   margin-bottom: 10px;
+  text-align: right;
 }
 
 .form-section p {
-  color: #555;
+  color: #444;
   margin-bottom: 30px;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.8;
   font-family: var(--font-main);
+  text-align: right;
+
+  /* ✅ תוספות למיקום תקין */
+  max-width: 620px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 label {
@@ -40,38 +54,86 @@ label {
   font-weight: bold;
   color: var(--color-main);
   font-family: var(--font-main);
+  text-align: right;
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+select {
   padding: 12px;
   font-size: 15px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   margin-bottom: 20px;
   font-family: var(--font-main);
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-white);
+  color: var(--color-main);
 }
 
-input:focus {
+input:focus,
+select:focus {
   border-color: var(--color-main);
   outline: none;
 }
 
+/* שדה סיסמה עם אייקון */
+.password-wrapper {
+  position: relative;
+  height: 48px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.password-wrapper input {
+  padding-right: 12px;
+  padding-left: 40px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.password-toggle {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-main);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* שדה מוסד לימוד עם חץ מותאם */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+  background-size: 16px 16px;
+  padding-left: 40px;
+  direction: rtl;
+}
+
+/* זכור אותי + שכחתי סיסמה */
 .form-options {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
+  width: 100%;
 }
 
 .remember {
   font-size: 14px;
-  color: #444;
+  color: var(--color-main) !important;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .forgot {
   font-size: 14px;
-  color: var(--color-accent);
+  color: var(--color-main);
   font-family: var(--font-main);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -91,6 +153,7 @@ button {
   cursor: pointer;
   font-family: var(--font-main);
   transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 button:hover {
@@ -104,8 +167,9 @@ button:hover {
   font-family: var(--font-main);
 }
 
+/* צד שמאל – אנימציה */
 .image-section {
-  flex: 1;
+  flex: 0.7;
   background-color: #f5f9ff;
   display: flex;
   align-items: center;
@@ -116,4 +180,60 @@ button:hover {
 .image-section img {
   max-width: 100%;
   height: auto;
+}
+@media (max-width: 1024px) {
+  .form-inner {
+    max-width: 420px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .form-section, .image-section {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .form-inner {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .form-section h2,
+  .form-section p,
+  label {
+    text-align: center;
+  }
+
+  .form-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .password-toggle {
+    left: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section h2 {
+    font-size: 24px;
+  }
+
+  .form-section p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
 }
