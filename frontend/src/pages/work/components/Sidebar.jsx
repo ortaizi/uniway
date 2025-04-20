@@ -10,10 +10,11 @@ export default function Sidebar() {
     <aside className="sidebar">
       {/* לוגו */}
       <div className="logo-section">
-        <img src={logo} alt="Uniway Logo" className="logo-image" />
+       
         <div className="logo-text">
           <h1>Uniway</h1>
         </div>
+        <img src={logo} alt="Uniway Logo" className="logo-image" />
       </div>
 
       {/* תפריט ניווט */}
@@ -41,10 +42,11 @@ export default function Sidebar() {
         <a href="https://facebook.com" target="_blank" rel="noreferrer">
           <FaFacebookF />
         </a>
-        <a href="https://instagram.com" target="_blank" rel="noreferrer">
+        <a href="https://www.instagram.com/uniway.il/" target="_blank" rel="noreferrer">
           <FaInstagram />
         </a>
-        <a href="https://whatsapp.com" target="_blank" rel="noreferrer">
+        <a href="https://wa.me/972537753717?text=היי%20הגעתי%20דרך%20הקישור%20ב-Uniway%2C%20אשמח%20לדבר%20איתך."
+          target="_blank" rel="noreferrer">
           <FaWhatsapp />
         </a>
       </div>
