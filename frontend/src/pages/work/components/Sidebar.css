@@ -1,18 +1,18 @@
 .sidebar {
   width: 240px;
-  background-color: #f1f5f9; /* light gray */
+  height: 100%; /* ← במקום 100vh */
+  background-color: var(--color-sidebar); /* ← גוון מעט כהה יותר */
   color: var(--color-main);
-  height: 100vh; /* full height of the viewport */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* push social icons to bottom */
+  justify-content: space-between;
   padding: 2rem 1rem;
   font-family: var(--font-main);
-  box-shadow: inset -1px 0 0 var(--color-border);
+  box-shadow: inset -1px 0 0 var(--color-border), 4px 0 12px rgba(0, 0, 0, 0.04); /* גבול + צל */
   direction: rtl;
   border-top-right-radius: var(--radius-lg);
   border-bottom-right-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow-y: auto;
   box-sizing: border-box;
 }
 

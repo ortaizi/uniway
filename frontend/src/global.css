@@ -7,7 +7,8 @@
   --color-background: #F5F7FA;        /* רקע בהיר, ניטרלי אך לא לבן מוחלט */
   --color-white: #ffffff;             /* לבן טהור – לרקעים ולכרטיסים */
   --color-border: #DDE3EA;            /* גבול רך – מתאים לאזורים מופרדים */
-  
+  --color-sidebar: #f0f4f8;
+
   --radius-lg: 20px;
   --radius-md: 12px;
 

@@ -13,13 +13,14 @@ function Topbar() {
 
   return (
     <header className="topbar" dir="rtl">
+      <div className="topbar-placeholder" />
       <div className="topbar-icons">
         <FiBell className="topbar-icon" />
         <FiUser className="topbar-icon" onClick={togglePopup} />
       </div>
-      <div className="topbar-placeholder" />
       {isPopupOpen && <UserPopup onClose={togglePopup} />}
     </header>
+
   );
 }
 
