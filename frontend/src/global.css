@@ -4,7 +4,8 @@
   --color-main: #1e2a38;              /* צבע עיקרי – כהה, יציב ומקצועי */
   --color-accent: #1ABC9C;            /* צבע משלים – טורקיז מודרני ונעים */
   --color-accent-dark: #168D7A;       /* גוון כהה יותר לטורקיז – להובר / פוקוס */
-  --color-background: #F5F7FA;        /* רקע בהיר, ניטרלי אך לא לבן מוחלט */
+  --color-background: #F9FBFC
+  ;        /* רקע בהיר, ניטרלי אך לא לבן מוחלט */
   --color-white: #ffffff;             /* לבן טהור – לרקעים ולכרטיסים */
   --color-border: #DDE3EA;            /* גבול רך – מתאים לאזורים מופרדים */
   --color-sidebar: #f0f4f8;
