@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
-    const id = localStorage.getItem('id');
+    const studentId = localStorage.getItem('studentId');
     const institution = localStorage.getItem('institution');
 
     if (username && password && id && institution) {
