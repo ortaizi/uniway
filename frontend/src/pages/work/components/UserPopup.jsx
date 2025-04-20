@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "./UserPopup.css";
 import Lottie from "react-lottie";
+import { FiX } from "react-icons/fi"; // ✅ איקון סגירה
 import animationData from "../../../assets/Animation-loading-userpopup.json";
 
 function UserPopup({ onClose }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [studentId, setStudentId] = useState("");
+  const [institution, setInstitution] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  // קריאה לפרטים השמורים
   useEffect(() => {
-    const savedUsername =
-      localStorage.getItem("username") || sessionStorage.getItem("username");
-    const savedPassword =
-      localStorage.getItem("password") || sessionStorage.getItem("password");
-    const savedStudentId =
-      localStorage.getItem("studentId") || sessionStorage.getItem("studentId");
-
-    if (savedUsername) setUsername(savedUsername);
-    if (savedPassword) setPassword(savedPassword);
-    if (savedStudentId) setStudentId(savedStudentId);
+    const storage = localStorage.getItem("username") ? localStorage : sessionStorage;
+    setUsername(storage.getItem("username") || "");
+    setPassword(storage.getItem("password") || "");
+    setStudentId(storage.getItem("studentId") || "");
+    setInstitution(storage.getItem("institution") || "");
   }, []);
 
   const handleSave = async () => {
@@ -34,21 +30,18 @@ function UserPopup({ onClose }) {
       const response = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password, studentId }),
+        body: JSON.stringify({ username, password, studentId, institution }),
       });
 
       const data = await response.json();
       setIsLoading(false);
 
       if (response.status === 200 && data.status === "success") {
-        // האם המשתמש בחר "זכור אותי"?
-        const rememberMe =
-          localStorage.getItem("username") !== null;
-
-        const storage = rememberMe ? localStorage : sessionStorage;
+        const storage = localStorage.getItem("username") ? localStorage : sessionStorage;
         storage.setItem("username", username);
         storage.setItem("password", password);
         storage.setItem("studentId", studentId);
+        storage.setItem("institution", institution);
 
         setMessage("✅ הפרטים עודכנו בהצלחה וההתחברות הצליחה.");
       } else {
@@ -69,6 +62,11 @@ function UserPopup({ onClose }) {
   return (
     <div className="user-popup">
       <div className="user-popup-inner">
+        {/* ❌ כפתור סגירה */}
+        <button className="popup-close" onClick={onClose}>
+          <FiX />
+        </button>
+
         <h2>הפרטים שלי</h2>
 
         <label>תעודת זהות</label>
@@ -91,6 +89,21 @@ function UserPopup({ onClose }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+        <label>מוסד לימודי</label>
+        <select
+          value={institution}
+          onChange={(e) => setInstitution(e.target.value)}
+        >
+          <option value="">בחר מוסד</option>
+          <option value="אוניברסיטת בן-גוריון">אוניברסיטת בן-גוריון</option>
+          <option value="אוניברסיטת תל אביב">אוניברסיטת תל אביב</option>
+          <option value="אוניברסיטה עברית">האוניברסיטה העברית</option>
+          <option value="אוניברסיטת חיפה">אוניברסיטת חיפה</option>
+          <option value="הטכניון">הטכניון</option>
+          <option value="מכללת ספיר">מכללת ספיר</option>
+          <option value="אוניברסיטת רייכמן">אוניברסיטת רייכמן</option>
+        </select>
 
         {isLoading ? (
           <div className="popup-loader">

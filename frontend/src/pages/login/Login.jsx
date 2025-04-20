@@ -36,7 +36,14 @@ function Login() {
       setLoading(false);
 
       if (response.status === 200 && data.status === 'success') {
-        localStorage.setItem("username", username);
+        const remember = document.querySelector('input[type="checkbox"]').checked;
+        const storage = remember ? localStorage : sessionStorage;
+
+        storage.setItem("username", username);
+        storage.setItem("password", password);
+        storage.setItem("studentId", studentId);
+        storage.setItem("institution", institution);
+
         setLoginSuccess(true);
         setMessage('✅ ההתחברות הצליחה!');
       } else if (response.status === 401) {
@@ -59,7 +66,7 @@ function Login() {
   return (
     <div className="login-container" dir="rtl">
       <div className="form-section">
-        <div className="form-inner"> {/* ✅ עטיפה חדשה */}
+        <div className="form-inner">
           <h2>אנחנו מתחברים – אתה מתפנה ללמוד.</h2>
           <p>
             תן לנו רגע לזהות אותך – ונחבר אותך בקליק לכל מערכות הלימוד שלך,
