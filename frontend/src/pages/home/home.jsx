@@ -16,7 +16,7 @@ function Home() {
     const studentId = localStorage.getItem('studentId');
     const institution = localStorage.getItem('institution');
 
-    if (username && password && id && institution) {
+    if (username && password && studentId && institution) {
       navigate('/work');
     }
   }, [navigate]);
