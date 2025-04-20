@@ -3,8 +3,8 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import Lottie from 'react-lottie';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
-import animationData from '../../assets/ani-loading-login.json';
-import SuccessPopup from './Successpopup.jsx';
+import animationData from '../../assets/Animation-loading-login.json';
+import successAnimation from '../../assets/Animation-successfullogin.json';
 import loginMainAnimation from '../../assets/ani-main-login.json';
 
 function Login() {
@@ -16,6 +16,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -33,7 +34,6 @@ function Login() {
       });
 
       const data = await response.json();
-      setLoading(false);
 
       if (response.status === 200 && data.status === 'success') {
         const remember = document.querySelector('input[type="checkbox"]').checked;
@@ -44,28 +44,51 @@ function Login() {
         storage.setItem("studentId", studentId);
         storage.setItem("institution", institution);
 
-        setLoginSuccess(true);
-        setMessage('✅ ההתחברות הצליחה!');
+        setTimeout(() => {
+          setLoading(false);
+          setShowSuccess(true);
+          setTimeout(() => {
+            navigate("/work");
+          }, 5000);
+        }, 1000);
       } else if (response.status === 401) {
-        setMessage('❌ שם משתמש או סיסמה שגויים');
+        setLoading(false);
+        setMessage('❌ אופס, אחד הפרטים שגוי. נסה שוב.');
       } else {
+        setLoading(false);
         setMessage('❌ משהו השתבש. נסה שוב מאוחר יותר.');
       }
     } catch (error) {
       setLoading(false);
       setMessage('❌ שגיאה בבקשה: ' + error.message);
-      console.error('Login error:', error);
     }
-  };
-
-  const handleSuccessPopupClose = () => {
-    setLoginSuccess(false);
-    navigate('/work');
   };
 
   return (
     <div className="login-container" dir="rtl">
-      <div className="form-section">
+      {(loading || showSuccess) && (
+        <div className="overlay-loading">
+          <div className="loading-box">
+            <Lottie
+              options={{
+                animationData: loading ? animationData : successAnimation,
+                loop: loading,
+                autoplay: true,
+                rendererSettings: {
+                  preserveAspectRatio: "xMidYMid slice",
+                },
+              }}
+              height={200}
+              width={200}
+            />
+            <div className="loading-text">
+              {loading ? "רגע, מתחברים..." : "התחברת בהצלחה 🎉"}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className={`form-section ${loading || showSuccess ? "blurred" : ""}`}>
         <div className="form-inner">
           <h2>אנחנו מתחברים – אתה מתפנה ללמוד.</h2>
           <p>
@@ -138,31 +161,12 @@ function Login() {
               <a href="#" className="forgot">שכחת סיסמה?</a>
             </div>
 
-            <button type="submit" disabled={loading}>התחברות</button>
+            <button type="submit" disabled={loading || showSuccess}>התחברות</button>
           </form>
-
-          {loading && (
-            <div className="lottie-animation">
-              <Lottie
-                options={{
-                  animationData,
-                  loop: true,
-                  autoplay: true,
-                  rendererSettings: {
-                    preserveAspectRatio: "xMidYMid slice",
-                  },
-                }}
-                height={150}
-                width={150}
-              />
-            </div>
-          )}
 
           {message && <p className="login-message">{message}</p>}
         </div>
       </div>
-
-      {loginSuccess && <SuccessPopup onClose={handleSuccessPopupClose} />}
 
       <div className="image-section">
         <Lottie

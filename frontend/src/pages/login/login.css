@@ -13,7 +13,7 @@
 
 .form-inner {
   width: 100%;
-  max-width: 480px; /* ✅ מצומצם לשדה צר ונעים */
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -35,8 +35,6 @@
   line-height: 1.8;
   font-family: var(--font-main);
   text-align: right;
-
-  /* ✅ תוספות למיקום תקין */
   max-width: 620px;
   margin-right: auto;
   margin-left: auto;
@@ -78,7 +76,6 @@ select:focus {
   outline: none;
 }
 
-/* שדה סיסמה עם אייקון */
 .password-wrapper {
   position: relative;
   height: 48px;
@@ -103,7 +100,6 @@ select:focus {
   cursor: pointer;
 }
 
-/* שדה מוסד לימוד עם חץ מותאם */
 select {
   appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
@@ -114,7 +110,6 @@ select {
   direction: rtl;
 }
 
-/* זכור אותי + שכחתי סיסמה */
 .form-options {
   display: flex;
   justify-content: space-between;
@@ -125,7 +120,7 @@ select {
 
 .remember {
   font-size: 14px;
-  color: var(--color-main) !important;
+  color: var(--color-main);
   display: flex;
   align-items: center;
   gap: 5px;
@@ -165,6 +160,7 @@ button:hover {
   font-size: 14px;
   color: var(--color-main);
   font-family: var(--font-main);
+  text-align: center;
 }
 
 /* צד שמאל – אנימציה */
@@ -181,6 +177,8 @@ button:hover {
   max-width: 100%;
   height: auto;
 }
+
+/* רספונסיביות */
 @media (max-width: 1024px) {
   .form-inner {
     max-width: 420px;
@@ -236,4 +234,40 @@ button:hover {
     font-size: 14px;
     padding: 12px;
   }
+}
+
+/* ✅ טשטוש של הטופס בזמן טעינה או הצלחה */
+.blurred {
+  filter: blur(3px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ✅ שכבת טעינה מעל המסך */
+.overlay-loading {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* ✅ מרכז האנימציה + טקסט */
+.loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.loading-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-main);
+  font-family: var(--font-main);
 }
