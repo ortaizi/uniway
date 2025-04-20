@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Topbar.css";
-import { FiBell, FiUser } from "react-icons/fi";
+import { FaRegCommentDots } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
 import UserPopup from "./UserPopup";
-
 
 function Topbar() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -15,12 +15,11 @@ function Topbar() {
     <header className="topbar" dir="rtl">
       <div className="topbar-placeholder" />
       <div className="topbar-icons">
-        <FiBell className="topbar-icon" />
+        <FaRegCommentDots className="topbar-icon chat-icon" /> {/* ✅ אייקון צ'אט עם עיצוב מותאם */}
         <FiUser className="topbar-icon" onClick={togglePopup} />
       </div>
       {isPopupOpen && <UserPopup onClose={togglePopup} />}
     </header>
-
   );
 }
 

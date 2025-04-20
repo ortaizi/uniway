@@ -4,9 +4,22 @@ import lightbulb from '../../assets/lightbulb-rb.png';
 import pencil from '../../assets/pencil-rb.png';
 import target from '../../assets/target-rb.png';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Home() {
   const navigate = useNavigate();
+
+  // ✅ בדיקת כל שדות ההתחברות
+  useEffect(() => {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password');
+    const id = localStorage.getItem('id');
+    const institution = localStorage.getItem('institution');
+
+    if (username && password && id && institution) {
+      navigate('/work');
+    }
+  }, [navigate]);
 
   return (
     <div className="home-container" dir="rtl">
