@@ -1,15 +1,20 @@
 .topbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* מיקום אייקונים בצד שמאל ויזואלית */
   align-items: center;
-  padding: 0.6rem 1.5rem 0.6rem 1.5rem;
-  background-color: transparent; /* ✅ שקוף */
-  border-bottom: 1px solid var(--color-border); /* ✅ קו תחתון דק */
+  padding: 0.6rem 1.5rem;
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-border);
   box-shadow: none;
   height: auto;
   margin: 0;
   box-sizing: border-box;
-  gap: 1rem;
+  direction: rtl;
+}
+
+.topbar-placeholder {
+  width: 1px; /* לצורך יישור עם הצד השני */
+  height: 1px;
 }
 
 .topbar-icons {

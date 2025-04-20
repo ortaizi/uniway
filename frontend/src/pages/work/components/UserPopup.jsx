@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./UserPopup.css";
 import Lottie from "react-lottie";
-import { FiX } from "react-icons/fi"; // ✅ איקון סגירה
+import { FiX } from "react-icons/fi"; // ✅ אייקון סגירה
+import { useNavigate } from "react-router-dom"; // ✅ לשימוש ב־navigate
 import animationData from "../../../assets/Animation-loading-userpopup.json";
 
 function UserPopup({ onClose }) {
@@ -11,6 +12,8 @@ function UserPopup({ onClose }) {
   const [institution, setInstitution] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
+
+  const navigate = useNavigate(); // ✅ ניתוב לעמוד אחר
 
   useEffect(() => {
     const storage = localStorage.getItem("username") ? localStorage : sessionStorage;
@@ -56,7 +59,7 @@ function UserPopup({ onClose }) {
   const handleLogout = () => {
     localStorage.clear();
     sessionStorage.clear();
-    location.reload();
+    navigate("/", { replace: true }); // ✅ ניתוב מחדש עם איפוס היסטוריה
   };
 
   return (

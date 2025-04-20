@@ -10,6 +10,8 @@ import Chat from './pages/work/chat/Chat.jsx';
 import Assignments from './pages/work/assignments/Assignments.jsx';
 import Courses from './pages/work/courses/Courses.jsx';
 
+import RequireLogin from './pages/work/components/RequireLogin.jsx'; // ✅ חדש
+
 function App() {
   return (
     <Router>
@@ -21,7 +23,14 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         {/* עמוד העבודה – כולל סרגל צד ועליון */}
-        <Route path="/work" element={<Work />}>
+        <Route
+          path="/work"
+          element={
+            <RequireLogin>
+              <Work />
+            </RequireLogin>
+          }
+        >
           <Route index element={<Home />} /> {/* תת-עמוד ברירת מחדל */}
           <Route path="chat" element={<Chat />} />
           <Route path="assignments" element={<Assignments />} />

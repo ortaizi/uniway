@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { FiBell, FiUser } from 'react-icons/fi';
-import './Topbar.css';
-import UserPopup from '../components/UserPopup'; // נתיב לקובץ popup החדש
+import React, { useState } from "react";
+import "./Topbar.css";
+import { FiBell, FiUser } from "react-icons/fi";
+import UserPopup from "./UserPopup";
 
-export default function Topbar() {
+
+function Topbar() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const togglePopup = () => {
@@ -11,15 +12,15 @@ export default function Topbar() {
   };
 
   return (
-    <header className="topbar">
+    <header className="topbar" dir="rtl">
       <div className="topbar-icons">
         <FiBell className="topbar-icon" />
         <FiUser className="topbar-icon" onClick={togglePopup} />
       </div>
-
-      {isPopupOpen && (
-        <UserPopup onClose={togglePopup} />
-      )}
+      <div className="topbar-placeholder" />
+      {isPopupOpen && <UserPopup onClose={togglePopup} />}
     </header>
   );
 }
+
+export default Topbar;
