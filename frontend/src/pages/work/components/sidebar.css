@@ -1,19 +1,21 @@
 .sidebar {
   width: 240px;
-  height: 100%; /* ← במקום 100vh */
-  background-color: var(--color-sidebar); /* ← גוון מעט כהה יותר */
+  height: 100%;
+  background-color: var(--color-sidebar);
   color: var(--color-main);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem 1rem;
   font-family: var(--font-main);
-  box-shadow: inset -1px 0 0 var(--color-border), 4px 0 12px rgba(0, 0, 0, 0.04); /* גבול + צל */
   direction: rtl;
-  border-top-right-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
   overflow-y: auto;
   box-sizing: border-box;
+
+  /* שינויי עיצוב חדשים */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-left: 1px solid var(--color-border); /* קו מפריד עדין מהתוכן */
 }
 
 /* אזור הלוגו */

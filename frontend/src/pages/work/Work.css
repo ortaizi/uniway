@@ -1,25 +1,28 @@
-/* כרטיס ראשי שכולל את הסיידבר וה־main */
-.work-card {
-  height: 100%;
-  display: flex;
-  border-top-left-radius: 0;           /* ⬅ מבטל עיגול בצד שמאל */
-  border-bottom-left-radius: 0;        /* ⬅ מבטל עיגול בצד שמאל */
-  border-top-right-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
-  overflow: hidden;
-  background-color: var(--color-white);
-  box-shadow: var(--shadow-light);
-  box-sizing: border-box;
-}
-
+/* עיצוב כללי של הדף */
 /* עיצוב כללי של הדף */
 .work-page {
   height: 100vh;
   background-color: var(--color-background);
-  padding: 1rem; /* ← צמצמנו מעט את הרווח הכללי */
+  padding: 0; /* אין צורך בפדינג, כי נוסיף מרווח ישירות ל־work-card */
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* כרטיס ראשי שכולל את הסיידבר וה־main */
+.work-card {
+  height: 95%;
+  width: 100%;
+  max-width: 1400px; /* גבול רוחב מקסימלי */
+  display: flex;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+  box-sizing: border-box;
+  margin: 1.5rem; /* ✅ מרווח חיצוני אחיד מכל הצדדים */
+}
 
 /* עוטף את הטופבר וה־Outlet */
 .main-wrapper {
@@ -40,7 +43,7 @@
   flex: 1;
   height: 100%;
   overflow-y: auto;
-  padding: 0.5rem;
+  padding: 0rem;
   background-color: var(--color-background);
   box-sizing: border-box;
 }
@@ -48,8 +51,13 @@
 /* ✅ כרטיס פנימי לעמודים עצמם (כמו הבית, מטלות וכו’) */
 .inner-content-card {
   background-color: var(--color-white);
-  border-radius: var(--radius-lg);
-  padding: 0.5rem 2rem 2rem 2rem; /* top | right | bottom | left */
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+  padding: 0.5rem 2rem 2rem 2rem;
   box-shadow: var(--shadow-light);
   box-sizing: border-box;
+  height: 100%; /* ✅ תוספת חדשה */
 }
+
