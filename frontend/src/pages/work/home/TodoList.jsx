@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './TodoList.css';
-import { FiPlus } from 'react-icons/fi';
+import { FiPlus, FiCheckCircle } from 'react-icons/fi';
 
 export default function TodoList() {
   const [tasks, setTasks] = useState([
@@ -9,23 +9,24 @@ export default function TodoList() {
   ]);
 
   const handleToggle = (id) => {
-    setTasks(prevTasks =>
-      prevTasks.map(task =>
+    setTasks(prev =>
+      prev.map(task =>
         task.id === id ? { ...task, completed: true } : task
       )
     );
 
+    // מחיקה איטית אחרי סימון
     setTimeout(() => {
-      setTasks(prevTasks => prevTasks.filter(task => task.id !== id));
+      setTasks(prev => prev.filter(task => task.id !== id));
     }, 800);
   };
 
   const handleAdd = () => {
-    const text = prompt("הכנס משימה חדשה:");
-    if (text) {
+    const text = prompt('הכנס משימה חדשה:');
+    if (text && text.trim()) {
       const newTask = {
         id: Date.now(),
-        text,
+        text: text.trim(),
         completed: false
       };
       setTasks([newTask, ...tasks]);
@@ -35,14 +36,21 @@ export default function TodoList() {
   return (
     <div className="todo-container">
       <div className="todo-header">
-        <h2>המשימות שלי</h2>
-        <button className="add-btn" onClick={handleAdd}>
+        <div className="todo-title">
+          <FiCheckCircle className="todo-icon" />
+          <h3>המשימות שלי</h3>
+        </div>
+        <button className="add-btn" onClick={handleAdd} title="הוסף משימה">
           <FiPlus />
         </button>
       </div>
+
       <ul className="todo-list">
         {tasks.map(task => (
-          <li key={task.id} className={`todo-item ${task.completed ? 'completed' : ''}`}>
+          <li
+            key={task.id}
+            className={`todo-item ${task.completed ? 'completed' : ''}`}
+          >
             <label>
               <input
                 type="checkbox"
@@ -53,7 +61,9 @@ export default function TodoList() {
             </label>
           </li>
         ))}
-        {tasks.length === 0 && <p className="empty-text">אין משימות כרגע ✨</p>}
+        {tasks.length === 0 && (
+          <p className="empty-text">אין משימות כרגע ✨</p>
+        )}
       </ul>
     </div>
   );

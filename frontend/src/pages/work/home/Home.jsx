@@ -1,31 +1,26 @@
+import React from 'react';
 import './Home.css';
 
-function Home() {
+import Header from './Header';
+import DashboardCardsRow from './dashboardcardsrow';
+import DashboardCardsRow2 from './dashboardcardsrow2'; // ✅ חשוב! הייבוא החסר
+import BottomGridRow from './bottomgridrow';           // ✅ גם אותו נוסיף
+
+export default function Home() {
   return (
-    <div className="dashboard-home">
-      <h2 className="dashboard-heading">ברוך הבא, זה הסיכום שלך להיום:</h2>
+    <main className="dashboard-main">
+      <Header />
 
-      <div className="cards-grid">
-        <div className="dashboard-card">
-          <h3>משימות פתוחות</h3>
-          <p>יש לך 4 מטלות שעדיין לא הוגשו.</p>
-          <button className="btn">לצפייה במטלות</button>
-        </div>
+      {/* ✅ שורת שלושת הכרטיסים העליונים */}
+      <DashboardCardsRow />
 
-        <div className="dashboard-card">
-          <h3>מיילים שלא נקראו</h3>
-          <p>3 הודעות חדשות מהאוניברסיטה.</p>
-          <button className="btn">פתח מיילים</button>
-        </div>
+      {/* ✅ שורת הכרטיסים השנייה (מיילים ואירועים) */}
+      <DashboardCardsRow2 />
 
-        <div className="dashboard-card">
-          <h3>אירועים קרובים</h3>
-          <p>אירוע אחד מחר בשעה 10:00.</p>
-          <button className="btn">לכל האירועים</button>
-        </div>
-      </div>
-    </div>
+      {/* ✅ השורה התחתונה עם TodoList ו־QuickLinks */}
+      <BottomGridRow />
+
+      {/* 📊 בהמשך תוכל להוסיף גרפים / אינטגרציות נוספות כאן */}
+    </main>
   );
 }
-
-export default Home;

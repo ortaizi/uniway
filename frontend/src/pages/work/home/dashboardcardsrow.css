@@ -1,0 +1,21 @@
+/* מעטפת חיצונית – מוסיפה ריווח מסביב */
+.dashboard-wrapper {
+margin: 2rem 0;     /* ריווח עליון ותחתון */
+padding: 0 1.5rem;  /* ריווח פנימי מימין ומשמאל */
+box-sizing: border-box;
+}
+
+/* שורת שלושת הכרטיסים */
+.dashboard-row {
+display: flex;
+flex-direction: row;
+gap: 1.5rem;
+width: 100%;
+justify-content: space-between;
+}
+
+/* מבטיח שכל כרטיס יתפוס גובה זהה */
+.dashboard-row > * {
+flex: 1;
+min-width: 0;
+}
