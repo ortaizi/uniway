@@ -1,0 +1,118 @@
+.mail-dropdown-page {
+    position: absolute;
+    top: 3.5rem;
+    left: 0;
+    width: 350px;
+    max-height: 500px;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-medium);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    z-index: 1000;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  /* כותרת עליונה עם מידע משתמש */
+  .dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-accent);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .user-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--color-main);
+  }
+  
+  .user-email {
+    font-size: 0.85rem;
+    color: var(--color-main);
+    opacity: 0.7;
+  }
+  
+  .close-icon {
+    font-size: 1.2rem;
+    color: var(--color-main);
+    cursor: pointer;
+  }
+  
+  /* כותרות סקשן */
+  .mail-section {
+    margin-top: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-main);
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.3rem;
+  }
+  
+  /* פרטי מיילים */
+  .mail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  
+  .mail-item {
+    background-color: var(--color-background);
+    border-radius: var(--radius-md);
+    padding: 0.8rem;
+    box-shadow: var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    color: var(--color-main);
+  }
+  
+  .mail-item strong {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    color: var(--color-main);
+  }
+  
+  .mail-item span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+  
+  .mail-item small {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 0.3rem;
+    align-self: flex-end;
+  }
+  

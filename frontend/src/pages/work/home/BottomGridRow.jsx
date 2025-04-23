@@ -1,21 +1,39 @@
-// BottomGridRow.jsx
 import './bottomgridrow.css';
-import TodoList from './TodoList';
+import Card from './card';
 import QuickLinks from './QuickLinks';
+import { FiCheckCircle, FiShield, FiDollarSign } from 'react-icons/fi';
 
 export default function BottomGridRow() {
+  const handleClick = () => alert('עוד מידע בדרך 😊');
+
   return (
     <div className="bottom-grid-wrapper">
       <div className="bottom-grid-row">
-        {/* צד ימין – משימות */}
-        <div className="card-container">
-          <TodoList />
-        </div>
+        {/* צד ימין – 3 כרטיסים */}
+        <Card
+          title="המשימות שלי"
+          items={["לשלוח מייל למרצה", "להתכונן למצגת בסטטיסטיקה"]}
+          buttonText="לרשימת משימות"
+          onClick={handleClick}
+          icon={<FiCheckCircle />}
+        />
+        <Card
+          title="ימי מילואים קרובים"
+          items={["26/04 – אימון מחלקה", "02/05 – שמירה בבסיס"]}
+          buttonText="לפרטי מילואים"
+          onClick={handleClick}
+          icon={<FiShield />}
+        />
+        <Card
+          title="מצב שכר חודשי"
+          items={["שעות אושרו: 42", "שעות בתשלום: 40"]}
+          buttonText="לפרטי שכר"
+          onClick={handleClick}
+          icon={<FiDollarSign />}
+        />
 
         {/* צד שמאל – קישורים שימושיים */}
-        <div className="card-container">
-          <QuickLinks />
-        </div>
+        <QuickLinks />
       </div>
     </div>
   );

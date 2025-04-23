@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
 
 :root {
-  --color-main: #1e2a38;              /* צבע עיקרי – כהה, יציב ומקצועי */
-  --color-accent: #1ABC9C;            /* צבע משלים – טורקיז מודרני ונעים */
-  --color-accent-dark: #168D7A;       /* גוון כהה יותר לטורקיז – להובר / פוקוס */
-  --color-background: #F9FBFC
-  ;        /* רקע בהיר, ניטרלי אך לא לבן מוחלט */
-  --color-white: #ffffff;             /* לבן טהור – לרקעים ולכרטיסים */
-  --color-border: #DDE3EA;            /* גבול רך – מתאים לאזורים מופרדים */
+  --color-main: #1e2a38;
+  --color-accent: #1ABC9C;
+  --color-accent-dark: #168D7A;
+  --color-background: #F9FBFC;
+  --color-white: #ffffff;
+  --color-border: #DDE3EA;
   --color-sidebar: #f0f4f8;
 
   --radius-lg: 20px;
   --radius-md: 12px;
+  --radius-sm: 6px;
 
   --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 6px 24px rgba(0, 0, 0, 0.08);
 
   --font-main: 'Assistant', sans-serif;
 }
@@ -29,27 +30,9 @@ body {
   direction: rtl;
 }
 
-/* שורש React */
 #root {
   height: 100%;
   background-color: var(--color-background);
-}
-
-/* כפתור כללי */
-.btn {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  border: none;
-  padding: 10px 20px;
-  font-size: 0.95rem;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: var(--font-main);
-}
-
-.btn:hover {
-  background-color: var(--color-accent-dark);
 }
 
 /* כרטיס */
@@ -68,4 +51,44 @@ body {
   color: var(--color-main);
 }
 
-/* כפתור ראשי חדש */
+/* כפתורים */
+.btn {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: 0.65rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: var(--font-main);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 120px;
+}
+
+.btn:hover {
+  background-color: var(--color-accent-dark);
+  box-shadow: var(--shadow-light);
+}
+
+.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-main);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: #f4f4f4;
+  color: var(--color-accent);
+}
+
+/* כפתור קטן */
+.btn-sm {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
