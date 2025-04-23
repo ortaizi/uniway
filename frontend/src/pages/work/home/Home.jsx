@@ -4,7 +4,7 @@ import './Home.css';
 import Header from './Header';
 import DashboardCardsRow from './dashboardcardsrow';
 import DashboardCardsRow2 from './dashboardcardsrow2'; // ✅ חשוב! הייבוא החסר
-import BottomGridRow from './bottomgridrow';           // ✅ גם אותו נוסיף
+import BottomGridRow from './BottomGridRow';           // ✅ גם אותו נוסיף
 
 export default function Home() {
   return (
