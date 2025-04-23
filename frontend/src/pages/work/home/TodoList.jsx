@@ -15,7 +15,6 @@ export default function TodoList() {
       )
     );
 
-    // מחיקה איטית אחרי סימון
     setTimeout(() => {
       setTasks(prev => prev.filter(task => task.id !== id));
     }, 800);
@@ -35,36 +34,37 @@ export default function TodoList() {
 
   return (
     <div className="todo-container">
+      {/* כותרת ואייקון + כפתור הוספה */}
       <div className="todo-header">
         <div className="todo-title">
           <FiCheckCircle className="todo-icon" />
-          <h3>המשימות שלי</h3>
+          <span>המשימות שלי</span>
         </div>
         <button className="add-btn" onClick={handleAdd} title="הוסף משימה">
           <FiPlus />
         </button>
       </div>
 
-      <ul className="todo-list">
-        {tasks.map(task => (
-          <li
-            key={task.id}
-            className={`todo-item ${task.completed ? 'completed' : ''}`}
-          >
-            <label>
+      {/* רשימת משימות */}
+      {tasks.length === 0 ? (
+        <p className="empty-text">אין משימות כרגע ✨</p>
+      ) : (
+        <ul className="todo-list">
+          {tasks.map(task => (
+            <li
+              key={task.id}
+              className={`todo-item ${task.completed ? 'completed' : ''}`}
+            >
               <input
                 type="checkbox"
                 checked={task.completed}
                 onChange={() => handleToggle(task.id)}
               />
               <span>{task.text}</span>
-            </label>
-          </li>
-        ))}
-        {tasks.length === 0 && (
-          <p className="empty-text">אין משימות כרגע ✨</p>
-        )}
-      </ul>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

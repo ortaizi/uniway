@@ -3,24 +3,16 @@ import './Home.css';
 
 import Header from './Header';
 import DashboardCardsRow from './dashboardcardsrow';
-import DashboardCardsRow2 from './dashboardcardsrow2'; // ✅ חשוב! הייבוא החסר
-import BottomGridRow from './BottomGridRow';           // ✅ גם אותו נוסיף
+import DashboardCardsRow2 from './dashboardcardsrow2';
+import BottomGridRow from './BottomGridRow';
 
 export default function Home() {
   return (
-    <main className="dashboard-main">
+    <div className="dashboard-home">
       <Header />
-
-      {/* ✅ שורת שלושת הכרטיסים העליונים */}
       <DashboardCardsRow />
-
-      {/* ✅ שורת הכרטיסים השנייה (מיילים ואירועים) */}
       <DashboardCardsRow2 />
-
-      {/* ✅ השורה התחתונה עם TodoList ו־QuickLinks */}
       <BottomGridRow />
-
-      {/* 📊 בהמשך תוכל להוסיף גרפים / אינטגרציות נוספות כאן */}
-    </main>
+    </div>
   );
 }

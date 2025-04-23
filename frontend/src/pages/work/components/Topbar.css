@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between; /* מיקום אייקונים בצד שמאל ויזואלית */
   align-items: center;
-  padding: 0.8rem 0rem;
+  padding: 1.3rem 0rem;
   background-color: transparent;
   box-shadow: none;
   height: auto;

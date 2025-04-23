@@ -1,8 +1,14 @@
 .todo-container {
-  padding: 1rem 1.5rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-light);
+  font-family: var(--font-main);
   direction: rtl;
+  box-sizing: border-box;
 }
 
+/* שורת כותרת ברורה – שורה אחת בלבד */
 .todo-header {
   display: flex;
   justify-content: space-between;
@@ -14,13 +20,13 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
   color: var(--color-main);
-  font-weight: 600;
-  font-size: 1.1rem;
 }
 
 .todo-icon {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .add-btn {
@@ -36,17 +42,22 @@
   color: var(--color-accent);
 }
 
+/* רשימת משימות */
 .todo-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
 }
 
 .todo-item {
-  margin-bottom: 0.6rem;
-  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
   color: var(--color-main);
-  transition: opacity 0.3s ease;
 }
 
 .todo-item.completed {
@@ -54,9 +65,32 @@
   text-decoration: line-through;
 }
 
+/* עיגול סימון */
 .todo-item input[type='checkbox'] {
-  margin-left: 0.5rem;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-main);
+  border-radius: 50%;
   cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.todo-item input[type='checkbox']:checked {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.todo-item input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
 }
 
 .empty-text {

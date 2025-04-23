@@ -1,7 +1,7 @@
 /* מעטפת חיצונית – מוסיפה ריווח מסביב */
 .dashboard-wrapper {
-margin: 2rem 0;     /* ריווח עליון ותחתון */
-padding: 0 1.5rem;  /* ריווח פנימי מימין ומשמאל */
+margin: 0rem 0;     /* ריווח עליון ותחתון */
+padding: 0rem;  /* ריווח פנימי מימין ומשמאל */
 box-sizing: border-box;
 }
 
