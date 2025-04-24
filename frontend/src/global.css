@@ -28,6 +28,7 @@ body {
   background-color: var(--color-background);
   font-family: var(--font-main);
   direction: rtl;
+  overflow-x: hidden !important; /* מונע גלילה שמאלה */
 }
 
 #root {

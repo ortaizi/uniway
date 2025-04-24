@@ -2,6 +2,7 @@
 /* עיצוב כללי של הדף */
 .work-page {
   height: 100vh;
+  width: 100%;
   background-color: var(--color-background);
   padding: 0; /* אין צורך בפדינג, כי נוסיף מרווח ישירות ל־work-card */
   box-sizing: border-box;
@@ -44,6 +45,7 @@
 .main-content {
   flex: 1;
   height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
   padding: 0rem;
   background-color: var(--color-background);

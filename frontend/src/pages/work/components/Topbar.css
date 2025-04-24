@@ -22,10 +22,15 @@
   position: relative;
 }
 
+/* ✅ עטיפה לכל אייקון – מאפשרת מיקום מדויק של ה-dropdown */
 .topbar-icon-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ✅ אייקון אינטראקטיבי */
 .topbar-icon {
   font-size: 1.9rem;
   color: var(--color-main);
@@ -45,18 +50,31 @@
   transform: translateY(1px);
 }
 
-/* ✅ תיבה שנפתחת מתחת לאייקון */
+/* ✅ Dropdown שיוצא מהאייקון */
 .topbar-dropdown-position {
   position: absolute;
-  top: calc(100% + 0.5rem); /* מרחק קטן מתחת לאייקון */
+  top: calc(100% + 12px); /* רווח מתחת לאייקון */
   right: 0;
   z-index: 1000;
-  min-width: 280px;
-  max-width: 420px;
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  padding: 1rem;
+  padding: 1.5rem;
+  min-width: 300px;
+  max-width: 420px;
   font-family: var(--font-main);
+  animation: dropdownFade 0.2s ease-out;
+}
+
+/* ✅ אפקט מעבר עדין */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

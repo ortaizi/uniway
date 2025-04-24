@@ -70,4 +70,34 @@
     color: var(--color-main);
     text-align: center;
   }
+  .dropdown-panel {
+    position: fixed;                        /* ✅ קיבוע למסך – לא מתוך wrapper */
+    top: 80px;                              /* ✅ מתחת לטופבר – כוונן לפי הצורך */
+    right: 2rem;                            /* ✅ מרווח נעים מהקצה הימני של המסך */
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    padding: 1.5rem;
+    z-index: 9999;
+    width: max-content;
+    min-width: 320px;
+    max-width: 420px;
+    overflow: hidden;
+    white-space: normal;
+  
+    animation: dropdownFade 0.2s ease-out;
+  }
+  
+  /* ✅ אפקט פתיחה */
+  @keyframes dropdownFade {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   
