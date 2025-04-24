@@ -2,7 +2,7 @@
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     padding: 1.5rem 1.8rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-light);
     border: 1px solid var(--color-border);
     transition: all 0.25s ease;
     display: flex;
@@ -12,10 +12,9 @@
   
   .card-container:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    box-shadow: var(--shadow-hover);
   }
   
-  /* כותרת הכרטיס */
   .card-header {
     display: flex;
     align-items: center;
@@ -28,35 +27,43 @@
     color: var(--color-main);
     margin: 0;
     letter-spacing: -0.3px;
-    line-height: 1.4;
   }
   
-  /* אייקון */
   .card-icon {
     font-size: 1.6rem;
     color: var(--color-accent);
-    flex-shrink: 0;
   }
   
-  /* תוכן פנימי */
   .card-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .card-list-item {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
-  }
-  
-  .card-list li {
-    font-size: 0.95rem;
-    color: #374151;
-    font-weight: 500;
+    font-size: 1.05rem;
+    color: var(--color-main);
     line-height: 1.6;
-    opacity: 0.95;
+    direction: rtl;
   }
   
-  /* כפתור */
+  .card-list-item .label {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  
+  .card-list-item .value {
+    font-weight: 500;
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+  
   .card-button {
     margin-top: auto;
     align-self: flex-start;
@@ -74,31 +81,5 @@
   
   .card-button:hover {
     background-color: var(--color-accent-dark);
-  }
-  
-  /* פריטי רשימה */
-  .card-list-item {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem; /* ✅ קרבה טבעית ונעימה */
-    font-size: 1.05rem; /* ✅ קצת יותר גדול */
-    color: var(--color-main);
-    line-height: 1.6;
-    direction: rtl;
-  }
-  
-  .card-list-item .label {
-    font-weight: 600;
-    font-size: 1.08rem;
-    white-space: nowrap;
-    letter-spacing: -0.2px; /* ✅ חד ומעודן */
-  }
-  
-  .card-list-item .value {
-    font-weight: 500;
-    font-size: 1.08rem;
-    opacity: 0.8;
-    white-space: nowrap;
-    letter-spacing: -0.2px;
   }
   

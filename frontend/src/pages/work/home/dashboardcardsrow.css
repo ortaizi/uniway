@@ -1,21 +1,47 @@
 /* מעטפת חיצונית – מוסיפה ריווח מסביב */
 .dashboard-wrapper {
-margin: 0rem 0;     /* ריווח עליון ותחתון */
-padding: 0rem;  /* ריווח פנימי מימין ומשמאל */
-box-sizing: border-box;
-}
-
-/* שורת שלושת הכרטיסים */
-.dashboard-row {
-display: flex;
-flex-direction: row;
-gap: 1.5rem;
-width: 100%;
-justify-content: space-between;
-}
-
-/* מבטיח שכל כרטיס יתפוס גובה זהה */
-.dashboard-row > * {
-flex: 1;
-min-width: 0;
-}
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+  }
+  
+  /* שורת כרטיסים רגילה – שורה ראשונה */
+  .dashboard-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  
+  /* כל כרטיס בשורה יקבל מרחב שווה */
+  .dashboard-row > * {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  /* 🧩 שורה שנייה – גריד משולב */
+  .second-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+  
+  /* עמודה אמצעית – כרטיס מעל כרטיס */
+  .second-col-middle {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* התאמה לקלילות של עמודות */
+  .second-col-left,
+  .second-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  

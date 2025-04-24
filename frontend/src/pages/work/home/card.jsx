@@ -8,11 +8,16 @@ export default function Card({ title, items, buttonText, onClick, icon }) {
         {icon && <div className="card-icon">{icon}</div>}
         <h3>{title}</h3>
       </div>
+
       <ul className="card-list">
         {items.map((item, idx) => (
-          <li key={idx}>{item}</li>
+          <li key={idx} className="card-list-item">
+            <span className="label">{item.label}</span>
+            <span className="value">{item.value}</span>
+          </li>
         ))}
       </ul>
+
       <button className="card-button" onClick={onClick}>
         {buttonText}
       </button>

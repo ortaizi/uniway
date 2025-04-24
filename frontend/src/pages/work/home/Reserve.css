@@ -1,0 +1,84 @@
+.card-container {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.8rem;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--color-border);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.card-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-main);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.card-icon {
+  font-size: 1.6rem;
+  color: var(--color-accent);
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.card-list-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  color: var(--color-main);
+  line-height: 1.6;
+  direction: rtl;
+}
+
+.card-list-item .label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.card-list-item .value {
+  font-weight: 500;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+.card-button {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.55rem 1.3rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 6px rgba(26, 188, 156, 0.2);
+}
+
+.card-button:hover {
+  background-color: var(--color-accent-dark);
+}
