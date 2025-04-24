@@ -1,95 +1,89 @@
+/* ---------- LinksDropdown.css ---------- */
+
+/* מעטפת הפופ-אפ — אין כאן מיקום */
 .dropdown-style {
-    position: absolute;
-    top: 3.5rem;
-    left: 0;
-    width: 380px;
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-medium);
-    border-radius: var(--radius-lg);
-    padding: 1.2rem 1.5rem;
-    z-index: 1000;
-    box-sizing: border-box;
-    direction: rtl;
-  }
-  
-  /* כותרת עם אייקון */
-  .dropdown-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .quick-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.2rem;
-    color: var(--color-main);
-    font-weight: 600;
-  }
-  
-  .quick-title-icon {
-    font-size: 1.3rem;
-    color: var(--color-accent);
-  }
-  
-  .close-icon {
-    font-size: 1.2rem;
-    color: var(--color-main);
-    cursor: pointer;
-  }
-  
-  /* פריסת הקישורים */
-  .quick-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1rem;
-  }
-  
-  /* כרטיס קישור */
-  .quick-link {
-    background-color: var(--color-background);
-    border-radius: var(--radius-md);
-    padding: 1rem;
-    text-decoration: none;
-    color: var(--color-main);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.8rem;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    border: 1px solid var(--color-border);
-  }
-  
-  .quick-link:hover {
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-light);
-    transform: translateY(-3px);
-    color: var(--color-accent);
-  }
-  
-  .quick-icon {
-    font-size: 1.6rem;
-    margin-top: 3px;
-    color: var(--color-main);
-  }
-  
-  .quick-texts {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .quick-name {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--color-main);
-  }
-  
-  .quick-desc {
-    font-size: 0.85rem;
-    color: var(--color-main);
-    opacity: 0.7;
-    margin-top: 2px;
-  }
-  /* ✅ עטיפת dropdown אחידה מתחת לאייקונים */
+  width: 380px;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-medium);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.5rem;
+  z-index: 1000;
+  box-sizing: border-box;
+  direction: rtl;
+}
+
+/* כותרת עם אייקון */
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 1rem;
+}
+.quick-title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font: 600 1.2rem var(--font-main);
+  color: var(--color-main);
+}
+.quick-title-icon {
+  font-size: 1.3rem;
+  color: var(--color-accent);
+}
+.close-icon {
+  font-size: 1.2rem;
+  color: var(--color-main);
+  cursor: pointer;
+}
+
+/* פריסת הקישורים */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+  gap: 1rem;
+}
+
+/* כרטיס קישור */
+.quick-link {
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .8rem;
+  text-decoration: none;
+  color: var(--color-main);
+  transition: all .25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  border: 1px solid var(--color-border);
+}
+.quick-link:hover {
+  background: var(--color-white);
+  box-shadow: var(--shadow-light);
+  transform: translateY(-3px);
+  color: var(--color-accent);
+}
+.quick-icon {
+  font-size: 1.6rem;
+  margin-top: 3px;
+}
+.quick-texts {
+  display: flex;
+  flex-direction: column;
+}
+.quick-name {
+  font: 600 1rem var(--font-main);
+  color: var(--color-main);
+}
+.quick-desc {
+  font: .85rem var(--font-main);
+  color: var(--color-main);
+  opacity: .7;
+  margin-block-start: .2rem;
+}
+
+/* אנימציית כניסה (ניתן לשתף עם feedback) */
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

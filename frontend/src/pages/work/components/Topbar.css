@@ -1,3 +1,6 @@
+/* Topbar.css */
+
+/* ===== בסיס הטופבר ===== */
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -5,40 +8,83 @@
   padding-block: 1.3rem;
   background: transparent;
   direction: rtl;
+  position: relative; /* כדי לכלול dropdowns בתוך ההקשר */
+  z-index: 100;       /* לשמור מעל התוכן מאחור */
 }
 
-.topbar-placeholder { width: 1px; height: 1px; }
+.topbar-placeholder {
+  width: 1px;
+  height: 1px;
+}
 
 .topbar-icons {
   display: flex;
   gap: 1rem;
 }
 
-/* אייקון בודד */
-.topbar-icon-wrapper { display: flex; }
+/* ===== האייקונים ===== */
+.topbar-icon-wrapper {
+  position: relative; /* מיקום יחסי ל־dropdown שמתחתיו */
+}
+
 .topbar-icon {
   font-size: 1.9rem;
   color: var(--color-main);
   cursor: pointer;
   padding: 4px;
   border-radius: 50%;
-  transition: background .2s, color .2s;
+  transition: background 0.2s, color 0.2s;
 }
+
 .topbar-icon:hover {
-  background:#e0f2f1;
+  background: #e0f2f1;
   color: var(--color-accent);
 }
 
-/* ---------- עטיפה שקובעת מיקום כל DropDown ---------- */
+/* ===== העטיפה של ה־dropdown ===== */
 .topbar-dropdown-position {
-  position: fixed;          /* יושב מעל התוכן ולא מזיז אותו */
-  top: 70px;                /* מתחת לטופ-בר (כוונן אם הטופ-בר משתנה) */
+  position: absolute;
+  top: calc(100% + 8px); /* רווח קבוע מתחת לאייקון */
+  left: 0;               /* מיושר לצד ימין (RTL) */
   z-index: 1000;
+  
+  /* רוחב מינימום ומקסימום אחידים לכל הפאנלים */
+  min-inline-size: 320px;
+  max-inline-size: 420px;
+  inline-size: max-content;
+
+  /* בשוליים צדדיים לא יחרגו מגבולות המסך */
+  inset-inline-end: 1rem;
+
+  /* אפשר להוסיף גלילה אנכית בתוך הפאנל עצמו, אם התוכן גבוה */
+  max-block-size: 70vh;
+  overflow-y: auto;
+
+  /* כדי שה־dropdown יהיה מעל כל התוכן */
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  box-sizing: border-box;
+
+  /* אנימציית fade-in משותפת */
+  animation: dropdownFade 0.25s ease-out;
 }
 
-/* מרחק אופקי שונה לכל אייקון */
-.dropdown-pos-fb    { inset-inline-end:  2rem; }  /* Feedback (קצה ימין) */
-.dropdown-pos-mail  { inset-inline-end:  6rem; }  /* Mail */
-.dropdown-pos-links { inset-inline-end: 10rem; }  /* Links */
+/* ===== אנימציה ===== */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* אפשר להמשיך להוסיף מחלקות אם תתווספנה לחצנים נוספים */
+/* ===== מניעת גלילה אופקית כללית ===== */
+html, body {
+  overflow-x: hidden !important;
+}
