@@ -2,79 +2,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.3rem 0rem;
-  background-color: transparent;
-  box-shadow: none;
-  height: auto;
-  margin: 0;
-  box-sizing: border-box;
+  padding-block: 1.3rem;
+  background: transparent;
   direction: rtl;
 }
 
-.topbar-placeholder {
-  width: 1px;
-  height: 1px;
-}
+.topbar-placeholder { width: 1px; height: 1px; }
 
 .topbar-icons {
   display: flex;
   gap: 1rem;
-  position: relative;
 }
 
-/* ✅ עטיפה לכל אייקון – מאפשרת מיקום מדויק של ה-dropdown */
-.topbar-icon-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ✅ אייקון אינטראקטיבי */
+/* אייקון בודד */
+.topbar-icon-wrapper { display: flex; }
 .topbar-icon {
   font-size: 1.9rem;
   color: var(--color-main);
   cursor: pointer;
   padding: 4px;
   border-radius: 50%;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background .2s, color .2s;
 }
-
 .topbar-icon:hover {
-  background-color: #e0f2f1;
+  background:#e0f2f1;
   color: var(--color-accent);
 }
 
-.chat-icon {
-  opacity: 0.8;
-  transform: translateY(1px);
-}
-
-/* ✅ Dropdown שיוצא מהאייקון */
+/* ---------- עטיפה שקובעת מיקום כל DropDown ---------- */
 .topbar-dropdown-position {
-  position: absolute;
-  top: calc(100% + 12px); /* רווח מתחת לאייקון */
-  right: 0;
+  position: fixed;          /* יושב מעל התוכן ולא מזיז אותו */
+  top: 70px;                /* מתחת לטופ-בר (כוונן אם הטופ-בר משתנה) */
   z-index: 1000;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  padding: 1.5rem;
-  min-width: 300px;
-  max-width: 420px;
-  font-family: var(--font-main);
-  animation: dropdownFade 0.2s ease-out;
 }
 
-/* ✅ אפקט מעבר עדין */
-@keyframes dropdownFade {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* מרחק אופקי שונה לכל אייקון */
+.dropdown-pos-fb    { inset-inline-end:  2rem; }  /* Feedback (קצה ימין) */
+.dropdown-pos-mail  { inset-inline-end:  6rem; }  /* Mail */
+.dropdown-pos-links { inset-inline-end: 10rem; }  /* Links */
+
+/* אפשר להמשיך להוסיף מחלקות אם תתווספנה לחצנים נוספים */

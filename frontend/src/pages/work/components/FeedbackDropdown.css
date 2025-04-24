@@ -1,103 +1,63 @@
+/* ---------- FeedbackDropdown.css ---------- */
+
+/* מעטפת הפופ-אפ */
 .feedback-dropdown {
-    width: 100%;
-    max-width: 360px;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-light);
-    padding: 1.2rem;
-  }
-  
-  .feedback-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--color-main);
-    margin-bottom: 0.2rem;
-  }
-  
-  .feedback-subtitle {
-    font-size: 0.9rem;
-    color: var(--color-main);
-    opacity: 0.7;
-    margin-bottom: 1rem;
-  }
-  
-  .feedback-textarea {
-    width: 100%;
-    height: 100px;
-    padding: 0.8rem;
-    font-size: 0.95rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    resize: none;
-    font-family: var(--font-main);
-    box-sizing: border-box;
-  }
-  
-  .feedback-textarea:focus {
-    border-color: var(--color-main);
-    outline: none;
-  }
-  
-  .feedback-send-btn {
-    margin-top: 0.8rem;
-    background-color: var(--color-accent);
-    color: var(--color-white);
-    border: none;
-    border-radius: var(--radius-md);
-    padding: 0.6rem 1.1rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: background 0.2s ease;
-    font-family: var(--font-main);
-  }
-  
-  .feedback-send-btn:hover {
-    background-color: var(--color-accent-dark);
-  }
-  
-  .send-icon {
-    font-size: 1.1rem;
-  }
-  
-  .feedback-sent-msg {
-    margin-top: 0.7rem;
-    font-size: 0.9rem;
-    color: var(--color-main);
-    text-align: center;
-  }
-  .dropdown-panel {
-    position: fixed;                        /* ✅ קיבוע למסך – לא מתוך wrapper */
-    top: 80px;                              /* ✅ מתחת לטופבר – כוונן לפי הצורך */
-    right: 2rem;                            /* ✅ מרווח נעים מהקצה הימני של המסך */
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-light);
-    padding: 1.5rem;
-    z-index: 9999;
-    width: max-content;
-    min-width: 320px;
-    max-width: 420px;
-    overflow: hidden;
-    white-space: normal;
-  
-    animation: dropdownFade 0.2s ease-out;
-  }
-  
-  /* ✅ אפקט פתיחה */
-  @keyframes dropdownFade {
-    from {
-      opacity: 0;
-      transform: translateY(-5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  min-inline-size: 320px;
+  max-inline-size: 420px;
+  font-family: var(--font-main);
+  animation: dropdownFade .25s ease-out;
+}
+
+/* כותרות */
+.feedback-title    { font: 700 1.2rem/1 var(--font-main); color: var(--color-main); }
+.feedback-subtitle { font: 0.9rem var(--font-main); color: var(--color-main); opacity: .7; margin-block-end: 1rem; }
+
+/* שדה הקלט */
+.feedback-textarea {
+  width: 100%;
+  height: 100px;
+  padding: .8rem;
+  font: 0.95rem var(--font-main);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  resize: none;
+  box-sizing: border-box;
+}
+.feedback-textarea:focus { border-color: var(--color-main); outline: none; }
+
+/* כפתור שליחה */
+.feedback-send-btn {
+  margin-top: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border: 0;
+  border-radius: var(--radius-md);
+  padding: .6rem 1.1rem;
+  font: 600 .95rem var(--font-main);
+  cursor: pointer;
+  transition: background .2s;
+}
+.feedback-send-btn:hover { background: var(--color-accent-dark); }
+
+.send-icon { font-size: 1.1rem; }
+
+.feedback-sent-msg {
+  margin-top: .7rem;
+  font: .9rem var(--font-main);
+  color: var(--color-main);
+  text-align: center;
+}
+
+/* אנימציית כניסה */
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -9,12 +9,10 @@ function Work() {
     <div className="work-page">
       <div className="work-card">
         <Sidebar />
-
         <div className="main-wrapper">
-
+          <Topbar />
           <div className="main-content">
-            <div className="inner-content-card"> {/* ✅ כרטיסייה פנימית רק ל־Outlet */}
-              <Topbar />
+            <div className="inner-content-card">
               <Outlet />
             </div>
           </div>
