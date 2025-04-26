@@ -1,50 +1,38 @@
-.assignments-header {
-    margin-bottom: 1.5rem;
-  }
-  
-  .assignments-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  
-  .assignments-description {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .assignments-content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1.5rem;
-  }
-  
-  .assignments-card {
+.assignments-card {
     background: var(--color-white);
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-soft);
+    overflow-x: auto;
   }
   
   .assignments-table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 600px;
   }
   
-  .assignments-table th, .assignments-table td {
+  .assignments-table th,
+  .assignments-table td {
     padding: 0.75rem;
     text-align: center;
     border-bottom: 1px solid var(--color-border);
   }
   
+  .assignments-table th {
+    font-weight: bold;
+    background-color: var(--color-background);
+  }
+  
   .assignment-button {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: var(--radius-xl);
     border: none;
     background-color: var(--color-accent);
     color: white;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
   }
   
   .assignment-button:hover {
@@ -56,6 +44,11 @@
     margin: 0 0.5rem;
     font-size: 1.2rem;
     color: var(--color-main);
+    transition: transform 0.3s ease;
+  }
+  
+  .delete-icon:hover, .pdf-icon:hover {
+    transform: scale(1.2);
   }
   
   .loading-message,
@@ -63,12 +56,6 @@
     font-size: 1.2rem;
     text-align: center;
     padding: 1rem;
-  }
-  
-  /* 📱 רספונסיביות למובייל */
-  @media (max-width: 768px) {
-    .assignments-content-grid {
-      grid-template-columns: 1fr;
-    }
+    color: var(--color-main);
   }
   

@@ -1,138 +1,74 @@
-/* ✅ עטיפת כל עמוד המשימות */
-.assignments-page {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  font-family: var(--font-main);
-  direction: rtl;
-}
-
-/* ✅ כותרת */
 .assignments-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.assignments-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-main);
-  margin: 0;
-}
-
-.assignments-description {
-  font-size: 1rem;
-  color: #6b7280;
-  line-height: 1.5;
-}
-
-/* ✅ כרטיס הטבלה */
-.assignments-card {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-light);
-  overflow-x: auto;
-  padding: 1.5rem;
-}
-
-/* ✅ טבלת המטלות */
-.assignments-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  font-size: 0.95rem;
-  min-width: 700px;
-}
-
-.assignments-table th {
-  background-color: #f0f4f8;
-  color: var(--color-main);
-  font-weight: 600;
-  padding: 14px 16px;
-  text-align: right;
-  border-bottom: 2px solid var(--color-border);
-}
-
-.assignments-table td {
-  background-color: var(--color-white);
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--color-border);
-  color: #374151;
-  vertical-align: middle;
-}
-
-.course-name {
-  color: #6b7280;
-  font-size: 0.85rem;
-  font-weight: 400;
-}
-
-/* ✅ פעולות */
-.assignments-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* כפתור הגשה */
-.assignment-button {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  border: none;
-  padding: 8px 16px;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.assignment-button:hover {
-  background-color: var(--color-accent-dark);
-  box-shadow: var(--shadow-light);
-}
-
-/* אייקונים */
-.delete-icon {
-  color: #ef4444;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.delete-icon:hover {
-  transform: scale(1.1);
-}
-
-.pdf-icon {
-  color: #f87171;
-  font-size: 1.2rem;
-}
-
-/* ✅ מובייל */
-@media (max-width: 768px) {
-  .assignments-page {
-    padding: 1.2rem;
+    margin-bottom: 1.5rem;
   }
-
-  .assignments-table,
-  .assignments-table thead {
-    display: none;
+  
+  .assignments-title {
+    font-size: 1.8rem;
+    font-weight: bold;
   }
-
-  .assignments-table,
-  .assignments-table tbody,
-  .assignments-table tr,
-  .assignments-table td {
-    display: block;
+  
+  .assignments-description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .assignments-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .assignments-card {
+    background: var(--color-white);
+    padding: 1rem;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .assignments-table {
     width: 100%;
+    border-collapse: collapse;
   }
-
-  .assignments-table td {
-    padding: 12px;
-    border-bottom: 1px solid #e5e7eb;
-    text-align: right;
+  
+  .assignments-table th, .assignments-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
   }
-}
+  
+  .assignment-button {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-xl);
+    border: none;
+    background-color: var(--color-accent);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .assignment-button:hover {
+    background-color: var(--color-accent-dark);
+  }
+  
+  .delete-icon, .pdf-icon {
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--color-main);
+  }
+  
+  .loading-message,
+  .empty-message {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  /* 📱 רספונסיביות למובייל */
+  @media (max-width: 768px) {
+    .assignments-content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
