@@ -2,7 +2,7 @@ import React from 'react';
 import './assignments.css';
 
 import AssignmentsHeader from './AssignmentsHeader';
-import AssignmentsTable from './AssignmentsTable';
+import AssignmentsTable from './ AssignmentsTable';
 import TodoList from './TodoList';
 
 export default function Assignments() {

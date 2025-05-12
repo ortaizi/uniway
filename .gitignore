@@ -1,10 +1,159 @@
+# ========================
+# 📦 Python / FastAPI
+# ========================
 __pycache__/
-*.pyc
-node_modules/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.egg-info/
+*.log
+.env
+.env.*
 venv/
-*.zip
-*.mov
-*.mp4
-*.webm
-*.svg
-chromedriver
+.vscode/
+
+# אל תכלול את קובץ הבסיס של תלויות
+requirements/__pycache__/
+
+# ========================
+# 🧪 Pytest
+# ========================
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ========================
+# 🖥️ Frontend (Vite + React)
+# ========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.DS_Store
+frontend/.env*
+
+# ========================
+# 🐳 Docker
+# ========================
+**/.docker/
+**/Dockerfile*
+**/docker-compose*.yml
+
+# ========================
+# 📋 Logs & temp
+# ========================
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+
+# ========================
+# 💻 macOS / OS junk
+# ========================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# ========================
+# 🧰 Dev tools
+# ========================
+.idea/
+.vscode/
+*.code-workspace
+
+# ========================
+# 🧪 Test outputs
+# ========================
+tests/__pycache__/
+tests/**/__pycache__/
+
+# ========================
+# 📂 Build artifacts
+# ========================
+build/
+out/
+dist/
+
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vite
+.vite/
+dist/
+dist-ssr/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
