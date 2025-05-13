@@ -1,24 +1,9 @@
 .
-├── .DS_Store
-├── .env
-├── .env.docker
-├── .env.production
-├── .github
-├── .gitignore
-├── .vite
-│   └── deps
-│       ├── _metadata.json
-│       └── package.json
-├── .vscode
-│   ├── launch.json
-│   ├── settings.json
-│   └── tasks.json
 ├── Makefile
 ├── PROJECT.md
 ├── README.md
 ├── alembic.ini
 ├── backend
-│   ├── .DS_Store
 │   ├── alembic
 │   │   ├── README
 │   │   ├── env.py
@@ -27,13 +12,10 @@
 │   │       └── 980101237f1c_create_users_table.py
 │   ├── alembic.ini
 │   ├── app
-│   │   ├── .DS_Store
 │   │   ├── Dockerfile
 │   │   ├── api
-│   │   │   ├── .DS_Store
 │   │   │   └── v1
 │   │   ├── core
-│   │   │   ├── .DS_Store
 │   │   │   ├── __init__.py
 │   │   │   ├── config.py
 │   │   │   ├── database.py
@@ -56,49 +38,20 @@
 │   │   ├── __init__.py
 │   │   └── moodle_scraper.py
 │   ├── scripts
-│   ├── tests
-│   │   ├── __init__.py
-│   │   ├── assignments
-│   │   │   └── test_open_assignments.py
-│   │   ├── auth
-│   │   │   └── test_login.py
-│   │   ├── conftest.py
-│   │   └── scraper
-│   │       ├── __init__.py
-│   │       └── test_moodle_scraper.py
-│   └── venv
-│       ├── bin
-│       │   ├── Activate.ps1
-│       │   ├── activate
-│       │   ├── activate.csh
-│       │   ├── activate.fish
-│       │   ├── alembic
-│       │   ├── dotenv
-│       │   ├── fastapi
-│       │   ├── mako-render
-│       │   ├── normalizer
-│       │   ├── pip
-│       │   ├── pip3
-│       │   ├── pip3.11
-│       │   ├── py.test
-│       │   ├── pytest
-│       │   ├── python -> python3.11
-│       │   ├── python3 -> python3.11
-│       │   ├── python3.11 -> /opt/homebrew/opt/python@3.11/bin/python3.11
-│       │   ├── uvicorn
-│       │   └── wsdump
-│       ├── include
-│       │   └── python3.11
-│       ├── lib
-│       │   └── python3.11
-│       └── pyvenv.cfg
+│   └── tests
+│       ├── __init__.py
+│       ├── assignments
+│       │   └── test_open_assignments.py
+│       ├── auth
+│       │   └── test_login.py
+│       ├── conftest.py
+│       └── scraper
+│           ├── __init__.py
+│           └── test_moodle_scraper.py
+├── backup.sql
 ├── devnotes.md
 ├── docker-compose.yml
 ├── frontend
-│   ├── .DS_Store
-│   ├── .env
-│   ├── .env.production
-│   ├── .gitignore
 │   ├── README.md
 │   ├── eslint.config.js
 │   ├── index.html
@@ -108,10 +61,8 @@
 │   │   ├── _redirects
 │   │   └── favicon.ico
 │   ├── src
-│   │   ├── .DS_Store
 │   │   ├── App.jsx
 │   │   ├── assets
-│   │   │   ├── .DS_Store
 │   │   │   ├── Animation - 1745003270385.webm
 │   │   │   ├── Animation-loading-login.json
 │   │   │   ├── Animation-loading-userpopup.json
@@ -134,12 +85,10 @@
 │   │   ├── global.css
 │   │   ├── main.jsx
 │   │   └── pages
-│   │       ├── .DS_Store
 │   │       ├── home
 │   │       ├── login
 │   │       └── work
 │   └── vite.config.js
-├── project-structure.txt
-└── structure.txt
+└── project-structure.txt
 
-39 directories, 104 files
+29 directories, 63 files

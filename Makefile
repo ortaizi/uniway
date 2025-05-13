@@ -200,3 +200,14 @@ prune:
 
 restart: down up
 	@echo "🔄 Restarted all services"
+
+# Makefile to generate project structure
+
+STRUCTURE_DEPTH=4
+STRUCTURE_FILE=project-structure.txt
+IGNORE_DIRS=node_modules|__pycache__|.git|venv|env|*.pyc|*.log
+
+tree:
+	@echo "Generating project structure up to depth $(STRUCTURE_DEPTH)..."
+	@tree -L $(STRUCTURE_DEPTH) -I "$(IGNORE_DIRS)" > $(STRUCTURE_FILE)
+	@echo "Saved to $(STRUCTURE_FILE)"
