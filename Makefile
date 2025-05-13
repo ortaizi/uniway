@@ -13,7 +13,8 @@ ISORT = $(VENV)/bin/isort
 MYPY = $(VENV)/bin/mypy
 
 # 🎯 Targets
-.PHONY: help install clean test lint format check-db migrate up down logs ps restart db-backup db-reset check-db prune
+.PHONY: help install clean test lint format check-db migrate up down logs ps restart db-backup db-reset check-db prune backend frontend test-backend test-frontend tree 
+
 
 # 📚 Help
 help:
