@@ -1,111 +1,91 @@
-from pydantic_settings import BaseSettings
+from typing import List, Callable
+from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import PostgresDsn, validator
+from functools import lru_cache
 from pathlib import Path
-from typing import List, Optional
-from dotenv import load_dotenv
-import os
-import platform
-import secrets
-from urllib.parse import urlparse
+from datetime import datetime
 
-# טוען את הקובץ .env שנמצא בשורש (ולא בתוך backend)
-env_path = Path(__file__).resolve().parents[3] / ".env"
+# נתיב לתיקיית backend
+BACKEND_DIR = Path(__file__).resolve().parent.parent.parent
 
-if not env_path.exists():
-    raise FileNotFoundError(f"❌ .env file not found at {env_path}")
-
-load_dotenv(dotenv_path=env_path)
-
-def get_default_chrome_path() -> str:
-    """מחזיר את הנתיב הדיפולטיבי לכרום לפי מערכת ההפעלה"""
-    system = platform.system().lower()
-    if system == "windows":
-        return r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-    elif system == "darwin":  # macOS
-        return "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-    else:  # Linux
-        return "/usr/bin/google-chrome"
-
-def validate_url(url: str) -> str:
-    """בודק שכתובת ה-URL תקינה"""
-    try:
-        result = urlparse(url)
-        if not all([result.scheme, result.netloc]):
-            raise ValueError(f"❌ Invalid URL format: {url}")
-        return url
-    except Exception as e:
-        raise ValueError(f"❌ Invalid URL: {url} - {str(e)}")
 
 class Settings(BaseSettings):
-    # סביבת ריצה
-    ENVIRONMENT: str = "development"
-    
-    # הגדרות בסיס נתונים
-    DATABASE_URL: str
-    
-    # כתובות URL
-    FRONTEND_URL: str
-    MOODLE_URL: str
-    
-    # הגדרות כרום
-    CHROME_PATH: str = get_default_chrome_path()
-    
-    # אבטחה
+    """⚙️ Global application settings for Uniway"""
+    ALGORITHM: str = "HS256"
+
+    # 📦 פרטי מערכת
+    PROJECT_NAME: str = "Uniway"
+    VERSION: str = "1.0.0"
+    DESCRIPTION: str = "Academic SaaS assistant for students"
+    API_V1_STR: str = "/api/v1"
+
+    # 🔐 אבטחה
     SECRET_KEY: str
-    ALLOWED_ORIGINS_RAW: str = "http://localhost:5173"
-    FERNET_SECRET_KEY: str
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 8  # 8 days
+    FERNET_SECRET_KEY: str | None = None  # להצפנה עתידית של מידע
 
-    # אופציונלי - הגדרות נוספות
-    DEBUG: bool = False
-    LOG_LEVEL: str = "INFO"
-    API_PREFIX: str = "/api/v1"
+    # 🕒 Utility for JWT and timestamps
+    @property
+    def NOW(self) -> Callable[[], datetime]:
+        """Returns current UTC time — used for token expiration"""
+        return datetime.utcnow
 
+    # 🌍 סביבה
+    ENVIRONMENT: str = "development"
+
+    # 🔄 CORS
+    FRONTEND_URL: str | None = None  # לשימוש פנימי או להפניות
+    ALLOWED_ORIGINS_RAW: str | None = None  # מחרוזת מופרדת בפסיקים
+    
     @property
     def allowed_origins(self) -> List[str]:
-        """מחזיר רשימה של דומיינים מורשים"""
-        return [origin.strip() for origin in self.ALLOWED_ORIGINS_RAW.split(",")]
+        """Get list of allowed origins based on environment"""
+        if self.ENVIRONMENT == "production":
+            return ["https://uniway.site"]
+        return ["http://localhost:5173", "http://localhost:3000"]
 
-    def validate_secret_key(self) -> None:
-        """בודק שהמפתח הסודי חזק מספיק"""
-        if len(self.SECRET_KEY) < 32:
-            raise ValueError("❌ SECRET_KEY must be at least 32 characters long")
-        if not any(c.isupper() for c in self.SECRET_KEY):
-            raise ValueError("❌ SECRET_KEY must contain at least one uppercase letter")
-        if not any(c.islower() for c in self.SECRET_KEY):
-            raise ValueError("❌ SECRET_KEY must contain at least one lowercase letter")
-        if not any(c.isdigit() for c in self.SECRET_KEY):
-            raise ValueError("❌ SECRET_KEY must contain at least one number")
+    # 🗄️ מסד נתונים
+    POSTGRES_SERVER: str
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
+    POSTGRES_DB: str
+    SQLALCHEMY_DATABASE_URI: PostgresDsn | None = None
+    DATABASE_URL: str | None = None  # לשימוש פנימי או תיעוד
 
-    def validate_urls(self) -> None:
-        """בודק שכל כתובות ה-URL תקינות"""
-        self.FRONTEND_URL = validate_url(self.FRONTEND_URL)
-        self.MOODLE_URL = validate_url(self.MOODLE_URL)
+    @validator("SQLALCHEMY_DATABASE_URI", pre=True)
+    def assemble_db_connection(cls, v: str | None, values: dict) -> str:
+        """בונה את URI למסד הנתונים אם לא סופק ישירות"""
+        if isinstance(v, str):
+            return v
 
-    def validate_chrome_path(self) -> None:
-        """בודק שנתיב הכרום קיים"""
-        if not Path(self.CHROME_PATH).exists():
-            raise FileNotFoundError(f"❌ Chrome executable not found at {self.CHROME_PATH}")
+        return PostgresDsn.build(
+            scheme="postgresql+asyncpg",
+            username=values.get("POSTGRES_USER"),
+            password=values.get("POSTGRES_PASSWORD"),
+            host=values.get("POSTGRES_SERVER"),
+            path=f"{values.get('POSTGRES_DB') or ''}"
+        )
 
-    def validate_database_url(self) -> None:
-        """בודק שכתובת ה-DB תקינה"""
-        try:
-            result = urlparse(self.DATABASE_URL)
-            if not all([result.scheme, result.netloc]):
-                raise ValueError("❌ Invalid DATABASE_URL format")
-            if result.scheme not in ["postgresql", "postgres"]:
-                raise ValueError("❌ DATABASE_URL must use postgresql:// or postgres:// scheme")
-        except Exception as e:
-            raise ValueError(f"❌ Invalid DATABASE_URL: {str(e)}")
+    # 📚 אינטגרציה עם Moodle
+    MOODLE_BASE_URL: str
+    MOODLE_USERNAME: str
+    MOODLE_PASSWORD: str
+    MOODLE_URL: str | None = None  # לשימוש עתידי
 
-    class Config:
-        case_sensitive = True
-        env_file = str(env_path)
-        env_file_encoding = 'utf-8'
+    # 🧭 נתיב לדפדפן כרום
+    CHROME_PATH: str | None = None
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.validate_secret_key()
-        self.validate_urls()
-        self.validate_chrome_path()
-        self.validate_database_url()
+    # ⚙️ הגדרות כלליות לטעינת הסביבה
+    model_config = SettingsConfigDict(
+        env_file=str(BACKEND_DIR / ".env"),
+        env_file_encoding="utf-8",
+        case_sensitive=True
+    )
 
+
+# טוען את ההגדרות פעם אחת בזיכרון (מומלץ)
 settings = Settings()
+
+@lru_cache()
+def get_settings() -> Settings:
+    return settings

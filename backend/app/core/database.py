@@ -1,29 +1,60 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from typing import AsyncGenerator
+from sqlalchemy.ext.asyncio import (
+    AsyncSession,
+    async_sessionmaker,
+    create_async_engine,
+)
+from sqlalchemy.orm import DeclarativeBase
+
 from app.core.config import settings
 
+# 📡 Debug – הדפסת כתובת ההתחברות למסד הנתונים
+print("📡 DATABASE_URL =", settings.SQLALCHEMY_DATABASE_URI)
 
-# יצירת מנוע חיבור לבסיס הנתונים
-engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)
+# ⚙️ יצירת מנוע אסינכרוני
+engine = create_async_engine(
+    str(settings.SQLALCHEMY_DATABASE_URI),
+    echo=False,
+    future=True,
+    pool_pre_ping=True,
+)
 
-# Session מקומית לכל בקשה
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+# 🧵 יצירת מפעל לסשנים אסינכרוניים
+async_session_factory = async_sessionmaker(
+    engine,
+    class_=AsyncSession,
+    expire_on_commit=False,
+    autocommit=False,
+    autoflush=False,
+)
 
-# בסיס למחלקות ORM
-Base = declarative_base()
+# 📐 בסיס למודלים ORM
+class Base(DeclarativeBase):
+    """Base class for all database models"""
+    pass
 
+# 📦 תלות שניתן להזריק לכל route
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
+    """
+    Dependency for getting async database sessions.
+    Usage:
+        @app.get("/")
+        async def route(db: AsyncSession = Depends(get_db)):
+            ...
+    """
+    async with async_session_factory() as session:
+        try:
+            yield session
+            await session.commit()
+        except Exception:
+            await session.rollback()
+            raise
+        finally:
+            await session.close()
 
-# ✅ פונקציה שמחזירה חיבור DB זמני (ל־Depends)
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
-
-# ✅ פונקציה שמאמתת שה־DB אכן נגיש (לשימוש באירועי startup)
+# 🧪 פונקציית בדיקה לחיבור למסד הנתונים (מומלץ להריץ ב־startup)
 def init_db():
+    """Verify database connection"""
     try:
         with engine.connect() as conn:
             conn.execute("SELECT 1")
@@ -31,4 +62,5 @@ def init_db():
     except Exception as e:
         print(f"❌ Failed to connect to database: {e}")
 
-from app.models.user import User  # ← רשום את כל המודלים שיש לך
+# 🧬 טען את המודלים שלך כאן כדי ש-Alembic יזהה אותם
+from app.models.user import User  # ⬅️ תוסיף גם אחרים כמו Course, Assignment...

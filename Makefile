@@ -13,7 +13,7 @@ ISORT = $(VENV)/bin/isort
 MYPY = $(VENV)/bin/mypy
 
 # 🎯 Targets
-.PHONY: help install clean test lint format check-db migrate up down logs ps restart db-backup db-reset check-db prune backend frontend test-backend test-frontend tree 
+.PHONY: help install clean backend frontend test lint format check-db migrate up down logs ps restart db-backup db-reset check-db prune  test-backend test-frontend tree test test-auth
 
 # 📚 Help
 help:
@@ -77,10 +77,10 @@ dev:
 	@echo "🚀 Starting development environment..."
 	docker compose up -d db
 	concurrently "make backend" "make frontend"
-
 backend:
 	@echo "🚀 Starting backend server..."
-	cd backend && $(UVICORN) app.main:app --reload --env-file ../.env
+	cd backend && venv/bin/uvicorn app.main:app --reload --env-file .env
+
 
 frontend:
 	@echo "🚀 Starting frontend server..."
@@ -145,9 +145,25 @@ db-down:
 	@echo "🛑 Stopping database..."
 	docker compose stop db
 
+pgadmin-up:
+	@docker compose up -d pgadmin
+
+pgadmin-down:
+	@docker compose stop pgadmin
+
+# ⚙️ יצירת מיגרציה חדשה לפי שינויים במודלים
+db-revision:
+	@read -p "📝 Revision name: " name; \
+	cd backend && venv/bin/alembic revision --autogenerate -m "$$name"
+
+# ⬆️ הרצת כל המיגרציות עד HEAD
 db-migrate:
-	@echo "🔄 Running database migrations..."
-	cd backend && $(PYTHON) -m alembic upgrade head
+	cd backend && venv/bin/alembic upgrade head
+
+# ⬇️ חזרה למיגרציה הקודמת (rollback)
+db-downgrade:
+	@read -p "↩️ Downgrade to (ex: -1 or revision ID): " rev; \
+	cd backend && venv/bin/alembic downgrade $$rev
 
 db-reset:
 	@make db-backup
@@ -203,11 +219,31 @@ restart: down up
 
 # Makefile to generate project structure
 
-STRUCTURE_DEPTH=4
+# עומק הסריקה של tree
+STRUCTURE_DEPTH=6
+
+# שם קובץ הפלט
 STRUCTURE_FILE=project-structure.txt
-IGNORE_DIRS=node_modules|__pycache__|.git|venv|env|*.pyc|*.log
+
+# אילו קבצים/תיקיות להתעלם מהם (לא כוללים קבצי .env)
+IGNORE_DIRS=__pycache__|node_modules|.DS_Store|*.pyc|*.log|*.sqlite3|__init__.py
 
 tree:
-	@echo "Generating project structure up to depth $(STRUCTURE_DEPTH)..."
+	@echo "🔍 Generating project structure up to depth $(STRUCTURE_DEPTH)..."
 	@tree -L $(STRUCTURE_DEPTH) -I "$(IGNORE_DIRS)" > $(STRUCTURE_FILE)
-	@echo "Saved to $(STRUCTURE_FILE)"
+	@echo "" >> $(STRUCTURE_FILE)
+	@echo "📄 Included .env files:" >> $(STRUCTURE_FILE)
+	@find . -maxdepth $(STRUCTURE_DEPTH) -type f -name ".env*" >> $(STRUCTURE_FILE)
+	@echo "✅ Saved to $(STRUCTURE_FILE)"
+
+freeze:
+	pip freeze > requirements.txt
+venv:
+	zsh -c 'source backend/venv/bin/activate && exec zsh'
+
+test:
+	PYTHONPATH=backend pytest
+
+# רק auth
+test-auth:
+	PYTHONPATH=backend pytest backend/tests/auth

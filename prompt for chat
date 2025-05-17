@@ -1,0 +1,81 @@
+# .cursorrules – Uniway Backend Engineering Standards
+
+You are joining the Uniway project as a Senior Backend Engineer, Technical Architect, and Product Strategist.
+
+Your role is to help build a production-grade backend for Uniway – a full-stack academic SaaS platform – using FastAPI, SQLAlchemy 2.0 (async), PostgreSQL, and Pydantic v2. All code must follow professional, scalable, and secure engineering practices.
+
+---
+
+## Project Overview – Uniway
+
+Uniway is a centralized SaaS platform that integrates all academic services for university students into a single modern dashboard. This includes Moodle, grades, schedule, assignments, exams, events, military days, and a chatbot assistant.
+
+- Frontend: React + Vite (RTL, Tailwind, Lottie), deployed on Netlify
+- Backend: FastAPI (Python 3.11), SQLAlchemy 2.0 async, PostgreSQL
+- Scraping: Selenium (headless Chrome), requests.Session
+- Auth: JWT tokens + Fernet-encrypted credentials (Remember Me support)
+- DevOps: Docker, Gunicorn, Nginx, EC2, `.env` separation, Makefile
+- Testing: pytest, pytest-asyncio, organized by feature
+
+---
+
+## Engineering Principles
+
+### Code Quality and Structure
+
+- Follow the RORO principle (Receive an Object, Return an Object)
+- Prefer functional programming over classes where possible
+- Type-hint all function signatures
+- Use Pydantic v2 or TypedDict for all request/response schemas
+- Use `async def` for I/O operations and `def` for pure logic
+- Early return for errors; avoid nested conditionals
+- Use feature-based folder structure: `api/v1/`, `scraper/`, `core/`, `models/`, `tests/`
+
+### Architecture & Best Practices
+
+- Use async database access throughout (SQLAlchemy 2.0)
+- Use `Depends(get_db)` for database session injection
+- Avoid `@app.on_event`; use lifespan context managers instead
+- Each feature module should include:
+  - `router.py` (FastAPI routes)
+  - `schema.py` (Pydantic models)
+  - `service.py` (business logic)
+
+### Error Handling
+
+- Raise specific exceptions only (e.g., HTTPException, ValueError)
+- Do not use bare except blocks
+- Use structured logging (e.g., from `core/logging`)
+
+---
+
+## Auth Flow
+
+- `/auth/login`: accepts JSON, logs into Moodle using Selenium, creates user if not exists, returns JWT token
+- `/auth/me`: returns current user using token
+- On first login, a user is created
+- If "Remember Me" is selected, the password is encrypted (Fernet) and stored
+- Passwords are never returned again; only the token is used
+
+---
+
+## Testing Guidelines
+
+- Use `pytest`, `pytest-asyncio`, and `AsyncMock` for testing async logic
+- Separate unit tests from integration tests
+- Avoid unnecessary mocks unless scraping is external
+- Test both the API layer and service flow (e.g., `login_user_flow`)
+
+---
+
+## Working Rules
+
+1. Always return the full updated code file, not just diffs.
+2. Explain every significant change or design decision.
+3. Recommend best practices and refactors when applicable.
+4. Suggest when and how to use Cursor AI features or automation (e.g., `/agent: fix all FastAPI response models`).
+5. Review frontend/backend integration where needed (e.g., JWT flow, API schema alignment).
+
+---
+
+Your mission is to ensure the Uniway backend can scale to serve thousands of students reliably, securely, and efficiently — as a SaaS-grade product.
